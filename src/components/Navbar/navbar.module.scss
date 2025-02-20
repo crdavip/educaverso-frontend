@@ -1,0 +1,141 @@
+.navbar {
+  background-color: $white;
+  box-shadow: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  &MenuButton {
+  }
+
+  &Items {
+    display: none;
+  }
+
+  &Content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  &Divider {
+    width: 100%;
+    display: none;
+  }
+
+  &Toolbar {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    width: 80%;
+    align-self: center;
+  }
+
+  &Logo {
+  }
+}
+
+@media only screen and (min-width: $mobileLg) {
+  .navbar {
+    &MenuButton {
+      display: none;
+    }
+
+    &Content {
+      flex-direction: column;
+    }
+
+    &Items {
+      display: block;
+    }
+
+    &Divider {
+      display: block;
+      margin-top: spacing(8);
+    }
+  }
+}
+
+@media only screen and (min-width: $tablet) {
+  .navbar {
+    &Content {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    &Divider {
+      margin-top: 0;
+    }
+  }
+}
+
+.menuButton {
+  position: relative;
+  margin-left: spacing(4);
+  z-index: 2;
+
+  &Icon {
+  }
+
+  &ItemsContainer {
+    position: absolute;
+    z-index: $z-index-nav;
+    border-radius: $small-radius;
+    overflow: hidden;
+    transition: visibility 0.3s, opacity 0.3s ease;
+    visibility: hidden;
+    opacity: 0;
+
+    &Visible {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+}
+
+.navbarItems {
+  &Container {
+    display: flex;
+
+    &Row {
+      flex-direction: row;
+      flex-wrap: nowrap;
+    }
+
+    &Column {
+      flex-direction: column;
+    }
+  }
+  &Link {
+    text-decoration: none;
+    color: inherit;
+
+    &Selected {
+      border-bottom: 2px solid $white;
+    }
+  }
+  &Text {
+    margin-left: spacing(1);
+  }
+
+  &WhiteTheme {
+    &Container {
+      background-color: $white;
+      border-bottom: 2px solid $white;
+    }
+    &Text {
+      color: $primary;
+    }
+    &Icon {
+      color: $primary;
+    }
+
+    &Link {
+      &Selected {
+        background-color: $gray-70;
+      }
+    }
+  }
+}

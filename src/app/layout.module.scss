@@ -1,0 +1,17 @@
+.section {
+  width: 95%;
+  margin: spacing(8) auto;
+}
+
+@media only screen and (min-width: $laptop) {
+  .section {
+    width: 80%;
+    margin: spacing(8) auto;
+  }
+}
+
+@media only screen and (min-width: $desktopLg) {
+  .section {
+    width: 70%;
+  }
+}

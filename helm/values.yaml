@@ -1,0 +1,8 @@
+namespace: production
+image: crbeunik.azurecr.io/beunik/beunik-blog-ui:remoteDebug
+serviceName: beunik-blog-ui
+storageAccount: stbeunikpremproduction
+apiUrl: https://cms.beunik.co/api
+domain: blog.beunik.co
+environmentName: production
+port: 5010

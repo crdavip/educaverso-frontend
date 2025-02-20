@@ -1,0 +1,29 @@
+.section {
+  min-height: 70vh
+}
+.title {
+  font-weight: bold;
+  font-size: 1.3rem;
+  color: $black;
+}
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: spacing(8);
+}
+.input {
+  margin-top: spacing(4);
+  border-bottom: 0;
+  overflow: hidden;
+}
+.noDataDiv {
+  background-color: $white;
+  width: 70%;
+  margin: auto;
+  border-radius: $medium-radius;
+  padding: spacing(4);
+  display: flex;
+  justify-content: center;
+}
+

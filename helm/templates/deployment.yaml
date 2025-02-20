@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.serviceName }}
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: {{ .Values.serviceName }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Values.serviceName}}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.serviceName }}
+    spec:
+      containers:
+      - name: {{ .Values.serviceName }}
+        image: {{ .Values.image }}
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: {{ .Values.port }}
+        env:
+          - name: NEXT_PUBLIC_API_BASE_URL
+            valueFrom:
+              configMapKeyRef:
+                name: {{ .Values.serviceName}}-config
+                key: API_BASE_URL
+          - name: API_BASE_URL
+            valueFrom:
+              configMapKeyRef:
+                name: {{ .Values.serviceName}}-config
+                key: API_BASE_URL
+          - name: API_AUTH_TOKEN
+            valueFrom:
+              configMapKeyRef:
+                name: {{ .Values.serviceName }}-config
+                key: API_AUTH_TOKEN
+          - name: NEXT_PUBLIC_AZURE_STORAGE_ACCOUNT
+            valueFrom:
+              configMapKeyRef:
+                name: {{ .Values.serviceName}}-config
+                key: AZURE_STORAGE_ACCOUNT
+          - name: AZURE_STORAGE_ACCOUNT
+            valueFrom:
+              configMapKeyRef:
+                name: {{ .Values.serviceName}}-config
+                key: AZURE_STORAGE_ACCOUNT
+          - name: NEXT_PUBLIC_API_AUTH_TOKEN
+            valueFrom:
+              configMapKeyRef:
+                name: {{ .Values.serviceName }}-config
+                key: API_AUTH_TOKEN
+          - name: NODE_ENV
+            value: {{ .Values.namespace }}

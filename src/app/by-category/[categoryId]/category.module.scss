@@ -1,0 +1,29 @@
+.categoryContainer {
+  width: 100%;
+  margin: 0 auto spacing(8) auto;
+  padding: spacing(8);
+  color: $white;
+
+  font-size: 1.2rem;
+  font-weight: bold;
+  position: relative;
+}
+@media only screen and (min-width: $mobileLg) {
+  .categoryContainer {
+    font-size: 1.5rem;
+    width: 70%;
+  }
+}
+.categoryBackground {
+  width: 100%;
+  height: 100px;
+  background-color: $black;
+  opacity: 0.3;
+  border-radius: $medium-radius;
+}
+.categoryText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

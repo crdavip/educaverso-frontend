@@ -1,0 +1,107 @@
+$section-radius: $medium-radius;
+
+.mainContainer {
+  display: flex;
+  flex-direction: row;
+  gap: spacing(2);
+}
+
+.cover {
+  border-radius: $section-radius;
+  height: 300px;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.imageContainer {
+  width: 100%;
+  height: 300px;
+  position: relative;
+}
+.image {
+  border-radius: $section-radius;
+}
+
+.date {
+  margin: spacing(3) 0;
+}
+
+.leftContainer {
+  background-color: $white;
+  border-radius: $section-radius;
+  flex: 2;
+  padding: spacing(3);
+}
+
+.rightContainer {
+  flex: 1;
+  display: none;
+  flex-direction: column;
+  gap: spacing(2);
+  position: relative;
+}
+
+.rightContainerSticky {
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: spacing(2);
+  gap: spacing(2);
+}
+
+@media only screen and (min-width: $laptop) {
+  .rightContainer {
+    display: flex;
+  }
+}
+
+.postSkeletonContainer {
+  display: flex;
+  flex-direction: row;
+}
+.postSkeletonLeft {
+  width: 70%;
+  height: 500px;
+  margin: spacing(4) auto;
+}
+.postSkeletonRight {
+  width: 25%;
+  height: 500px;
+  margin: spacing(4) auto;
+  display: none;
+}
+
+@media only screen and (min-width: $laptop) {
+  .postSkeletonLeft {
+    margin: spacing(4) 0;
+  }
+  .postSkeletonRight {
+    display: block;
+  }
+}
+
+.rightSubSection {
+  background-color: $white;
+  border-radius: $section-radius;
+  padding: spacing(4);
+}
+
+.subsectionTitle {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.subSectionDivider {
+  margin: spacing(2) 0;
+}
+
+.noDataDiv {
+  background-color: $white;
+  width: 70%;
+  margin: auto;
+  border-radius: $section-radius;
+  padding: spacing(4);
+  display: flex;
+  justify-content: center;
+}
+

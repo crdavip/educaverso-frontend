@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  width: 100%;
+  margin: spacing(2) 0;
+}
+
+.circle {
+  margin-right: spacing(3);
+}
+
+.rightSide {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}

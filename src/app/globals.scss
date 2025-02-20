@@ -1,0 +1,32 @@
+* {
+  scroll-behavior: smooth;
+  text-decoration: none;
+  transition: .25s all;
+}
+
+body {
+  font-family: 'Quicksand Variable', sans-serif;
+  color: $text-color;
+  background: $white;
+}
+
+.section {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  width: 95%;
+  margin: spacing(12) auto;
+}
+
+@media only screen and (min-width: $laptop) {
+  .section {
+    width: 80%;
+    margin: spacing(12) auto;
+  }
+}
+
+@media only screen and (min-width: $desktopLg) {
+  .section {
+    width: 70%;
+  }
+}
