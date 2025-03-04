@@ -1,84 +1,36 @@
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+
 ## Getting Started
 
-1. Ask for the .env.local file contents.
-2. Install dependencies (`npm install`)
-2. Run the development server:
+First, run the development server:
+
 ```bash
 npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-Open [http://localhost:5010](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Theming
-Inside theme.scss are all the variables to change the look and feel of the app.
-Any change here affects the whole app.
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-In the root of the app there are two theme files.
-- theme.module.scss
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-This one can be imported inside any component to use the variables in js.
-- theme.scss
+## Learn More
 
-This one is prepended with nextjs config so their variables are accessible for all .scss files.
+To learn more about Next.js, take a look at the following resources:
 
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-They need to be in two different files in order for nextjs to support this approach for theming.
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
+## Deploy on Vercel
 
-## Project conventions
-Most project conventions can be deduced by observing existing code, however, I'll
-leave here some conventions not so obvious.
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-
-### Material UI (MUI) component imports
-
-Import MUI components like this:
-
-```js
-import Slider from '@mui/material/Slider';
-```
-instead of like this:
-```js
-import { Slider } from '@mui/material';
-```
-
-This improves startup time in dev environment ([Docs](https://mui.com/material-ui/guides/minimizing-bundle-size/#development-environment))
-
-### Styling
-
-- Place all styles inside their respective .module.scss file,
-  including layout styling like *display: flex*, and such.
-
-  The reason for this is that in case it needs some media queries
-  it can be done inside the same .module.scss file.
-  Besides having all styles inside the .scss files make the code more predictable hence more maintainable.
-
-
-- This project uses mobile-first design. So use *min-width* for media queries. And test first on mobile.
-
-
-- Do not hardcode colors, z-index, border-radius or media query values. If needed add them to the theme.scss file.
-  This helps with styling consistency inside the app.
-
-
-- Use the *spacing(n)* function for spaces in general (paddings, margins, gaps, etc).
-  This ensures consistent spacing across the app.
-
-
-- Place media queries right next to the place it is styling, (not at the end):
-```scss
-.authBox {
-  width: 300px;
-  padding: spacing(4);
-}
-@media only screen and (min-width: $mobileLg) {
-  .authBox {
-    width: 400px;
-  }
-}
-@media only screen and (min-width: $tablet) {
-  .authBox {
-    width: 500px;
-  }
-}
-```
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
