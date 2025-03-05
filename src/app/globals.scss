@@ -5,7 +5,6 @@
 }
 
 body {
-  font-family: 'Quicksand', sans-serif;
-  color: $text-color;
-  background: $white;
+  color: $text-color !important;
+  background-color: $white !important;
 }
