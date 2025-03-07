@@ -17,16 +17,16 @@ export const initialData: SeedData = {
         {
             rating: 5.0,
             description: "Yorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec.",
-            name_client: "Cliente 1",
-            profession_client: ["Diseñador Grafico"],
-            image_client: "avatar.jpg",
+            name_client: "Lizeth Valencia",
+            profession_client: ["Fitness"],
+            image_client: "avatar-default.jpg",
         },
         {
-            rating: 5.0,
+            rating: 4.5,
             description: "Yorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec.",
-            name_client: "Cliente 2",
+            name_client: "Martin Sierra",
             profession_client: ["Programador"],
-            image_client: "avatar.jpg",
+            image_client: "avatar-default.jpg",
         }
     ]
 }

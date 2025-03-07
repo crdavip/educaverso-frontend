@@ -1,0 +1,35 @@
+.container {
+  display: flex;
+  justify-content: center;
+  background-color: $primary;
+}
+
+.slider {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  max-width: $desktop;
+
+  h2 {
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  p {
+    margin-block: min(1rem, 10%);
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+.sliderTxt {
+  padding-block: min(3rem, 10%);
+}
+
+.sliderImg {
+  display: inline-flex;
+}

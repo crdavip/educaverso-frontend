@@ -1,0 +1,20 @@
+.footer {
+  display: flex;
+  flex-direction: column !important;
+  padding-block: min(1rem, 8%);
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media only screen and (max-width: $tablet) {
+  .container {
+    padding-inline: min(1rem, 8%);
+  }
+
+  .contactColumn {
+    margin-top: min(2rem, 8%);
+  }
+}

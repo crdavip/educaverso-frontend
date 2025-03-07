@@ -11,14 +11,12 @@ interface Props {
   children: React.ReactNode;
 }
 
-export default function RootLayout({children}: Props) {
+export default function RootLayout({ children }: Props) {
   return (
     <html lang="es">
-      <body>
-        <AppMui>
-        {children}
-        </AppMui>
-      </body>
+      <AppMui>
+        <body>{children}</body>
+      </AppMui>
     </html>
   );
 }

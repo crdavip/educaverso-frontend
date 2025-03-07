@@ -1,0 +1,25 @@
+.container {
+  padding-block: min(4rem, 8%);
+}
+
+.profitCard {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.cardImg {
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;
+  border-bottom: 2px solid $black;
+}
+
+@media only screen and (max-width: $tablet) {
+  .profitCard {
+    align-items: start;
+    padding-block: min(2rem, 10%);
+  }
+}
