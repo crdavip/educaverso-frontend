@@ -9,10 +9,10 @@ export function Testimonial() {
   return (
     <Grid container component="section" className={styles.container}>
       <Grid container className={styles.wrapperTitle}>
-        <Typography variant="h4" component="h3">
-          Testimonios de independientes
+        <Typography>&quot;He encontrado oportunidades increíbles gracias a esta plataforma.&quot;</Typography>
+        <Typography variant="h2" fontWeight={700} fontSize={30} mb={3}>
+          Testimonios de profesionales
         </Typography>
-        <Typography mb={3}>He encontrado oportunidades increíbles gracias a esta plataforma.</Typography>
       </Grid>
       <Grid container spacing={3}>
         {testimonials.map((testimonial) => {

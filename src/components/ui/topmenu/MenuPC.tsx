@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { KeyboardArrowDown } from "@mui/icons-material";
-import { Box, Button, Menu, MenuItem } from "@mui/material";
+import { Box, Button, Menu, MenuItem, Typography } from "@mui/material";
 import { Logo } from "../logo/Logo";
 
 interface Props {
@@ -41,7 +41,7 @@ export const MenuPC = ({ categories }: Props) => {
         <Menu id="category-menu" anchorEl={anchorElCategory} open={openCategory} onClose={handleCloseCategory}>
           {categories.map((category) => (
             <MenuItem key={category} onClick={handleCloseCategory}>
-              {category}
+              <Typography component="div" variant="body2">{category}</Typography>
             </MenuItem>
           ))}
         </Menu>

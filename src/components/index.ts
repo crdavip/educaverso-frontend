@@ -8,6 +8,7 @@ export * from "./ui/logo/Logo";
 export * from "./ui/profits/Profits";
 export * from "./ui/hero/Hero";
 export * from "./ui/testimonial/Testimonial";
+export * from "./ui/notfound/NotFound";
 
 export * from "./forms/ContactForm";
 export * from "./forms/LoginForm";

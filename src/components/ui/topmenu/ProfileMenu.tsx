@@ -43,7 +43,7 @@ export const ProfileMenu = ({ settings }: Props) => {
       >
         {settings.map((setting) => (
           <MenuItem key={setting.title} onClick={handleCloseUserMenu}>
-            <Typography component="div" sx={{ display: "flex", alignItems: "center", gap: 1 }}>{setting.icon} {setting.title}</Typography>
+            <Typography component="div" variant="body2" sx={{ display: "flex", alignItems: "center", gap: 1 }}>{setting.icon} {setting.title}</Typography>
           </MenuItem>
         ))}
       </Menu>

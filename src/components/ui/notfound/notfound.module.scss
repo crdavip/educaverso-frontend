@@ -1,0 +1,37 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+
+  .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: min(2rem, 10%);
+
+    h2 {
+      font-weight: 600;
+    }
+
+    .wrapperImg {
+      text-align: right;
+
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: $tablet) {
+  .wrapperTxt {
+    text-align: center;
+    margin-bottom: min(3rem, 10%);
+  }
+
+  .wrapperImg {
+    text-align: center !important;
+  }
+}

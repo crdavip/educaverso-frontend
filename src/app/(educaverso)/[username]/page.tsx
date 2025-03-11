@@ -1,12 +1,17 @@
+import { notFound } from "next/navigation";
+
 interface Props {
   params: Promise<{
     username: string;
-  }>
+  }>;
 }
 
-export default async function UserNamePage({params}:Props) {
+export default async function UserNamePage({ params }: Props) {
+  const { username } = await params;
 
-  const {username} = await params;
+  if (username === "devMaster99") {
+    notFound();
+  }
 
   return (
     <div>

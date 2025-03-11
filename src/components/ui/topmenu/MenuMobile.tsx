@@ -66,7 +66,7 @@ export const MenuMobile = ({ categories }: Props) => {
         >
           <List component="nav">
             <ListItemButton onClick={handleClick}>
-              <ListItemText primary="Categorías" />
+              <ListItemText primary="Categorías" sx={{fontSize: "10px"}} />
               {open ? <ExpandLess /> : <ExpandMore />}
             </ListItemButton>
             <Collapse in={open} timeout="auto" unmountOnExit>
