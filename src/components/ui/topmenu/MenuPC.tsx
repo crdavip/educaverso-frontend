@@ -38,7 +38,7 @@ export const MenuPC = ({ categories }: Props) => {
         >
           Categorías <KeyboardArrowDown />
         </Button>
-        <Menu id="category-menu" anchorEl={anchorElCategory} open={openCategory} onClose={handleCloseCategory}>
+        <Menu id="category-menu" anchorEl={anchorElCategory} open={openCategory} onClose={handleCloseCategory} disableScrollLock>
           {categories.map((category) => (
             <MenuItem key={category} onClick={handleCloseCategory}>
               <Typography component="div" variant="body2">{category}</Typography>

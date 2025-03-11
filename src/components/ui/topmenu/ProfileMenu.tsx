@@ -40,6 +40,7 @@ export const ProfileMenu = ({ settings }: Props) => {
         }}
         open={Boolean(anchorElUser)}
         onClose={handleCloseUserMenu}
+        disableScrollLock
       >
         {settings.map((setting) => (
           <MenuItem key={setting.title} onClick={handleCloseUserMenu}>
