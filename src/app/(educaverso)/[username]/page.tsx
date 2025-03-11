@@ -1,7 +1,7 @@
 interface Props {
-  params: {
+  params: Promise<{
     username: string;
-  }
+  }>
 }
 
 export default async function UserNamePage({params}:Props) {
@@ -10,7 +10,7 @@ export default async function UserNamePage({params}:Props) {
 
   return (
     <div>
-      <h1>UserName {username}</h1>
+      <h1>Perfil de {username}</h1>
     </div>
   );
 }

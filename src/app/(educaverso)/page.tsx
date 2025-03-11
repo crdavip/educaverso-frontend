@@ -1,12 +1,21 @@
-import { Typography } from "@mui/material";
+import { Container, Grid2 as Grid } from "@mui/material";
+import { Hero, Profits, UserGrid, Testimonial } from "@/components";
+import { initialDataUser } from "@/seed/seedUser";
 import styles from "./home.module.scss";
+
+const users = initialDataUser.users;
 
 export default function HomePage() {
   return (
-    <div>
-      <Typography variant="h1" className={styles.titleFont}>
-        Pagina Educaverso
-      </Typography>
-    </div>
+    <Grid component="main" className={styles.main}>
+      <Hero />
+      <Container component="section">
+        <Profits />
+      </Container>
+      <UserGrid users={users} />
+      <Container component="section">
+        <Testimonial />
+      </Container>
+    </Grid>
   );
 }

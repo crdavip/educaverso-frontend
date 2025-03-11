@@ -19,7 +19,7 @@ interface SeedData {
     users: SeedUser[],
 }
 
-export const initialData: SeedData = {
+export const initialDataUser: SeedData = {
     users: [
         {
             username: 'crdavip',

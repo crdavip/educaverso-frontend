@@ -1,11 +1,15 @@
+import { Footer, TopMenu } from "@/components";
+
 interface Props {
-    children: React.ReactNode;
+  children: React.ReactNode;
 }
 
-export default function EducaversoLayout({children}: Props) {
+export default function EducaversoLayout({ children }: Props) {
   return (
-    <main>
+    <>
+      <TopMenu />
       {children}
-    </main>
+      <Footer />
+    </>
   );
 }

@@ -1,9 +1,9 @@
 import Image from "next/image";
 import { Avatar, Box, Card, CardContent, CardHeader, Divider, Grid2 as Grid, Rating, Typography } from "@mui/material";
 import styles from "./testimonial.module.scss";
-import { initialData } from "@/seed/seedTestimonial";
+import { initialDataTestimonial } from "@/seed/seedTestimonial";
 
-const testimonials = initialData.testimonials;
+const testimonials = initialDataTestimonial.testimonials;
 
 export function Testimonial() {
   return (

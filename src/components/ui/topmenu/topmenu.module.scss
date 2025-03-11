@@ -1,0 +1,25 @@
+.appBar {
+  background-color: $white !important;
+  box-shadow: none !important;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.buttonGroup {
+  display: inline-flex;
+  gap: 1rem;
+}
+
+@media only screen and (max-width: $mobileLg) {
+  .buttonGroup {
+    gap: 0;
+  }
+
+  .buttonGroup .btnAlt {
+    display: none;
+  }
+}

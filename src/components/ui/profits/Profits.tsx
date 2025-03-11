@@ -32,7 +32,7 @@ export function Profits() {
         </Grid>
         <Grid size={{ xs: 12, sm: 6 }}>
           <Typography align="justify">
-            Nuestra plataforma permite a los profesionales desempleados mostrar su perfil de manera efectiva. Aquí,
+            Nuestra plataforma permite a los profesionales independientes mostrar su perfil de manera efectiva. Aquí,
             puedes exhibir tu portafolio y recibir testimonios que resalten tus habilidades. Además, tendrás la
             oportunidad de vender tus cursos y compartir tu conocimiento con otros.
           </Typography>

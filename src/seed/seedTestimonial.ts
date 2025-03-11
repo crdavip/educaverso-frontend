@@ -12,7 +12,7 @@ interface SeedData {
     testimonials: SeedTestimonial[],
 }
 
-export const initialData: SeedData = {
+export const initialDataTestimonial: SeedData = {
     testimonials: [
         {
             rating: 5.0,
