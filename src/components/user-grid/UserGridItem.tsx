@@ -1,10 +1,10 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Box, Card, CardContent, Grid2 as Grid, Rating, Typography } from "@mui/material";
 import { User } from "@/interfaces";
 import styles from "./usergrid.module.scss";
-import { SocialIcons } from "../user/SocialIcons";
+import { SocialIcons } from "../social-icons/SocialIcons";
 import { formatNumber } from "@/helpers";
-import Link from "next/link";
 
 interface Props {
   user: User;
@@ -38,11 +38,11 @@ export const UserGridItem = ({ user }: Props) => {
           </Box>
           <Box className={styles.userCardContentRight}>
             <Box className={styles.userCardStats}>
-              <Typography variant="h4">{formatNumber(user.total_contents)}</Typography>
+              <Typography variant="h4">{formatNumber(user.totalContents)}</Typography>
               <Typography variant="caption">Contenidos</Typography>
             </Box>
             <Box className={styles.userCardStats}>
-              <Typography variant="h4">{formatNumber(user.profile_views)}</Typography>
+              <Typography variant="h4">{formatNumber(user.profileViews)}</Typography>
               <Typography variant="caption">Vistas</Typography>
             </Box>
           </Box>

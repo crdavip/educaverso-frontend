@@ -1,0 +1,18 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $primary;
+
+    .wrapper {
+        max-width: $desktop;
+        padding-block: min(2rem, 10%);
+        width: 90%;
+
+        h2 {
+            font-weight: 700;
+            line-height: 1;
+            text-transform: capitalize;
+        }
+    }
+}

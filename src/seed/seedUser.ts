@@ -1,14 +1,17 @@
+import { ProfessionalCategories } from "@/interfaces/category.interface";
+
 interface SeedUser {
     username: string;
     fullname: string;
     profession: ValidProfessions[];
     rating: number;
     description: string;
-    profile_image?: string;
-    profile_views: number;
-    total_contents: number;
+    profileImage?: string;
+    profileViews: number;
+    totalContents: number;
     socials: ValidSocials[];
     gender: ValidGenders;
+    category: ProfessionalCategories["name"][];
 }
 
 type ValidGenders = 'Hombre'|'Mujer'|'Otro';
@@ -27,11 +30,12 @@ export const initialDataUser: SeedData = {
             profession: ['Programador', 'Diseñador Grafico'],
             rating: 1.4,
             description: 'Creativo en diseño gráfico, apasionado del desarrollo web y la optimización de código.',
-            profile_image: 'crdavip.jpg',
-            profile_views: 12335,
-            total_contents: 80,
+            profileImage: 'crdavip.jpg',
+            profileViews: 12335,
+            totalContents: 80,
             socials: ['LinkedIn', 'YouTube', 'Facebook'],
             gender: "Hombre",
+            category: ["Programación", "Diseño"]
         },
         {
             username: "devMaster99",
@@ -39,11 +43,12 @@ export const initialDataUser: SeedData = {
             profession: ["Programador"],
             rating: 3.8,
             description: "Apasionado del desarrollo web y la optimización de código.",
-            profile_image: "devMaster99.jpg",
-            profile_views: 3250,
-            total_contents: 35,
+            profileImage: "devMaster99.jpg",
+            profileViews: 3250,
+            totalContents: 35,
             socials: ["LinkedIn", "YouTube"],
-            gender: "Hombre"
+            gender: "Hombre",
+            category: ["Programación"],
         },
         {
             username: "designQueen",
@@ -51,11 +56,12 @@ export const initialDataUser: SeedData = {
             profession: ["Diseñador Grafico"],
             rating: 4.5,
             description: "Creativa en diseño gráfico y branding para marcas digitales.",
-            profile_image: "designQueen.jpg",
-            profile_views: 950,
-            total_contents: 28,
+            profileImage: "designQueen.jpg",
+            profileViews: 950,
+            totalContents: 28,
             socials: ["Instagram", "Facebook"],
-            gender: "Mujer"
+            gender: "Mujer",
+            category: ["Diseño"],
         },
         {
             username: "fitLife2024",
@@ -63,11 +69,12 @@ export const initialDataUser: SeedData = {
             profession: ["Fitness", "Cantante"],
             rating: 3.3,
             description: "Entrenador personal y cantante apasionado por la música y la vida saludable.",
-            profile_image: "fitLife2024.jpg",
-            profile_views: 1800,
-            total_contents: 50,
+            profileImage: "fitLife2024.jpg",
+            profileViews: 1800,
+            totalContents: 50,
             socials: ["Instagram", "YouTube"],
-            gender: "Hombre"
+            gender: "Hombre",
+            category: ["Fitness"],
         },
         
     ]

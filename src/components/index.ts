@@ -1,21 +1,19 @@
-export * from "./ui/topmenu/TopMenu";
-export * from "./ui/topmenu/ButtonsMenu";
-export * from "./ui/topmenu/ProfileMenu";
-export * from "./ui/topmenu/MenuPC";
-export * from "./ui/topmenu/MenuMobile";
-export * from "./ui/footer/Footer";
-export * from "./ui/logo/Logo";
-export * from "./ui/profits/Profits";
-export * from "./ui/hero/Hero";
-export * from "./ui/testimonial/Testimonial";
-export * from "./ui/notfound/NotFound";
-
+export * from "./footer/Footer";
+export * from "./forms/AuthAlternative";
 export * from "./forms/ContactForm";
 export * from "./forms/LoginForm";
 export * from "./forms/RegisterForm";
-export * from "./forms/AuthAlternative";
-
-export * from "./users/UserGrid";
-export * from "./users/UserGridItem";
-
-export * from "./user/SocialIcons";
+export * from "./hero/Hero";
+export * from "./logo/Logo";
+export * from "./not-found/NotFound";
+export * from "./profits/Profits";
+export * from "./social-icons/SocialIcons";
+export * from "./testimonial/Testimonial";
+export * from "./title-pg/TitlePg";
+export * from "./top-menu/ButtonsMenu";
+export * from "./top-menu/MenuMobile";
+export * from "./top-menu/MenuPC";
+export * from "./top-menu/ProfileMenu";
+export * from "./top-menu/TopMenu";
+export * from "./user-grid/UserGrid";
+export * from "./user-grid/UserGridItem";

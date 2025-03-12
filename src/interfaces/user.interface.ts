@@ -1,3 +1,5 @@
+import { ProfessionalCategories } from "./category.interface";
+
 export interface User {
     //id: string;
     username: string;
@@ -5,11 +7,12 @@ export interface User {
     profession: ValidProfessions[];
     rating: number;
     description: string;
-    profile_image?: string;
-    profile_views: number;
-    total_contents: number;
+    profileImage?: string;
+    profileViews: number;
+    totalContents: number;
     socials: ValidSocials[];
     gender: ValidGenders;
+    category: ProfessionalCategories["name"][];
 }
 
 export type ValidGenders = 'Hombre'|'Mujer'|'Otro';

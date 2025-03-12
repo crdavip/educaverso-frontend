@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import {
   Box,
   IconButton,
@@ -14,9 +15,11 @@ import {
 } from "@mui/material";
 import { Sort, ExpandLess, ExpandMore } from "@mui/icons-material";
 import { Logo } from "../logo/Logo";
+import { ProfessionalCategories } from "@/interfaces/category.interface";
+
 
 interface Props {
-  categories: string[];
+  categories: ProfessionalCategories[];
 }
 
 export const MenuMobile = ({ categories }: Props) => {
@@ -72,16 +75,20 @@ export const MenuMobile = ({ categories }: Props) => {
             <Collapse in={open} timeout="auto" unmountOnExit>
               <List component="div" disablePadding>
                 {categories.map((category) => (
-                  <ListItemButton key={category} onClick={handleCloseNavMenu} sx={{ pl: 4 }}>
-                    <ListItemText primary={category} />
-                  </ListItemButton>
+                  <Link key={category.slug} href={`/categoria/${category.slug}`}>
+                    <ListItemButton onClick={handleCloseNavMenu} sx={{ pl: 4, paddingBlock: 0.5 }}>
+                      <ListItemText secondary={category.name} />
+                    </ListItemButton>
+                  </Link>
                 ))}
               </List>
             </Collapse>
           </List>
-          <MenuItem onClick={handleCloseNavMenu}>
-            <Typography sx={{ textAlign: "center" }}>Explorar</Typography>
-          </MenuItem>
+          <Link href="/explorar">
+            <MenuItem onClick={handleCloseNavMenu}>
+              <Typography color="secondary" sx={{ textAlign: "center" }}>Explorar</Typography>
+            </MenuItem>
+          </Link>
         </Menu>
       </Box>
       <Box sx={{ ml: 2, display: "inline-flex" }}>

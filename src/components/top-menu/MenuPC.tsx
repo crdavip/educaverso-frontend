@@ -1,12 +1,14 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { KeyboardArrowDown } from "@mui/icons-material";
 import { Box, Button, Menu, MenuItem, Typography } from "@mui/material";
 import { Logo } from "../logo/Logo";
+import { ProfessionalCategories } from "@/interfaces/category.interface";
 
 interface Props {
-  categories: string[];
+  categories: ProfessionalCategories[];
 }
 
 export const MenuPC = ({ categories }: Props) => {
@@ -40,14 +42,18 @@ export const MenuPC = ({ categories }: Props) => {
         </Button>
         <Menu id="category-menu" anchorEl={anchorElCategory} open={openCategory} onClose={handleCloseCategory} disableScrollLock>
           {categories.map((category) => (
-            <MenuItem key={category} onClick={handleCloseCategory}>
-              <Typography component="div" variant="body2">{category}</Typography>
-            </MenuItem>
+            <Link key={category.slug} href={`/categoria/${category.slug}`}>
+              <MenuItem onClick={handleCloseCategory}>
+                <Typography component="div" variant="body2" color="secondary">{category.name}</Typography>
+              </MenuItem>
+            </Link>
           ))}
         </Menu>
-        <Button color="secondary" sx={{ my: 2, display: "block" }}>
-          Explorar
-        </Button>
+        <Link href="/explorar">
+          <Button color="secondary" sx={{ my: 2, display: "block" }}>
+            Explorar
+          </Button>
+        </Link>
       </Box>
     </Box>
   );

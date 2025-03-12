@@ -12,7 +12,9 @@ export default function HomePage() {
       <Container component="section">
         <Profits />
       </Container>
-      <UserGrid users={users} />
+      <Container component="section" maxWidth={false} className={styles.container}>
+        <UserGrid users={users} />
+      </Container>
       <Container component="section">
         <Testimonial />
       </Container>

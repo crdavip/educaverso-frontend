@@ -1,13 +1,6 @@
-.container {
-  display: flex;
-  justify-content: center;
-  background-color: $background-gray;
-  padding-block: min(4rem, 8%);
-}
-
 .users {
   display: flex;
-  justify-content: space-between;
+  justify-content: start;
   align-items: center;
   width: 90%;
   max-width: $desktop;
