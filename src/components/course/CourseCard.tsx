@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { AccessTimeOutlined, Star, StarBorder, StarHalf } from "@mui/icons-material";
-import { Card, CardContent, Typography, Grid2 as Grid, Box } from "@mui/material";
+import { Card, CardContent, Typography, Grid2 as Grid, Box, Chip } from "@mui/material";
 import { Course } from "@/interfaces";
 import styles from './course.module.scss'
 
@@ -33,16 +33,10 @@ export const CourseCard = ({ course }: Props) => {
         </Link>
         <Grid display="flex" alignItems="center" gap={2}>
           <Box sx={{display: "flex", alignItems: "center", gap: 0.5}}>
-            <AccessTimeOutlined color="secondary" fontSize="small" />
-            <Typography>
-              {course.duration}min
-            </Typography>
+            <Chip icon={<AccessTimeOutlined color="secondary" fontSize="small" />} label={`${course.duration}min`} size="small"/>
           </Box>
           <Box sx={{display: "flex", alignItems: "center", gap: 0.5}}>
-            {levelIcons[course.level]}
-            <Typography>
-              {course.level}
-            </Typography>
+            <Chip color="primary" icon={levelIcons[course.level]} label={course.level} size="small"/>
           </Box>
         </Grid>
         <Box fontWeight={700} sx={{ mt: 2 }}>
