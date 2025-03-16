@@ -8,7 +8,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 90%;
+  width: 95%;
   max-width: $desktop;
 
   h2 {
@@ -32,4 +32,42 @@
 
 .sliderImg {
   display: inline-flex;
+}
+
+@media only screen and (max-width: $laptop) {
+  .slider h2 {
+    font-size: 3.25rem;
+  }
+
+  .slider h3 {
+    font-size: 2.5rem;
+  }
+}
+
+@media only screen and (max-width: $tablet) {
+  .slider h2 {
+    font-size: 4rem;
+  }
+
+  .slider h3 {
+    font-size: 3.5rem;
+  }
+}
+
+@media only screen and (max-width: $mobileLg) {
+  .sliderTxt {
+    padding-block: 3rem;
+  }
+
+  .slider h2 {
+    font-size: 2.5rem;
+  }
+
+  .slider h3 {
+    font-size: 1.9rem;
+  }
+
+  .slider p {
+    margin-block: 1rem;
+  }
 }

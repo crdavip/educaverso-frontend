@@ -10,20 +10,20 @@ interface SeedData {
 export const initialDataCategory: SeedData = {
     categories: [
         {
-            name: 'Programación',
-            slug: 'programacion',
+            name: 'Belleza',
+            slug: 'belleza',
         },
         {
-            name: 'Diseño',
-            slug: 'diseno',
+            name: 'Coaching',
+            slug: 'coaching',
+        },
+        {
+            name: 'Entrenamiento',
+            slug: 'entranamiento',
         },
         {
             name: 'Alimentación',
             slug: 'alimentacion',
-        },
-        {
-            name: 'Fitness',
-            slug: 'fitness',
         },
     ]
 }

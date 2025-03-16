@@ -1,0 +1,47 @@
+.courses {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  width: 100%;
+  max-width: $desktop;
+}
+
+.courseCard {
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+
+  .courseCardHeader {
+    height: 50%;
+    padding: 0;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  .courseCardContent {
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.5rem;
+
+    h6 {
+      min-height: 3rem;
+    }
+
+    a {
+        color: $black;
+    }
+  }
+}
+
+.courseCard:hover {
+  transform: scale(1.05);
+  transition: 0.75s all;
+}

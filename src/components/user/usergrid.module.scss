@@ -2,7 +2,7 @@
   display: flex;
   justify-content: start;
   align-items: center;
-  width: 90%;
+  width: 100%;
   max-width: $desktop;
 }
 
@@ -27,6 +27,7 @@
       justify-content: flex-end;
       flex-direction: column;
       align-items: flex-start;
+      gap: 0.5rem;
       padding: 1.5rem;
 
       h5 {
@@ -57,11 +58,6 @@
     .userCardContentLeft {
       display: flex;
       flex-direction: column;
-
-      .userCardContentRating {
-        display: flex;
-        align-items: center;
-      }
     }
 
     .userCardContentRight {
@@ -72,10 +68,10 @@
       .userCardStats {
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: flex-end;
 
         h4 {
-          font-weight: 300;
+          font-weight: 700;
           line-height: .75;
         }
 

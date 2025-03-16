@@ -1,4 +1,8 @@
 .wrapper {
     display: flex;
-    gap: .15rem;
+    gap: .25rem;
+}
+
+.button {
+    background-color: $background-gray !important;
 }

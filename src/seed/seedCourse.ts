@@ -1,41 +1,51 @@
 interface SeedCourse {
     title: string;
     image: string;
-    duration: number;
     students: number;
+    duration: number;
+    level: ValidLevel;
     rating: number;
     price: number;
+    url: string;
 }
+
+type ValidLevel = 'Principiante'|'Intermedio'|'Avanzado';
 
 interface SeedData {
     courses: SeedCourse[],
 }
 
-export const initialData: SeedData = {
+export const initialDataCourse: SeedData = {
     courses: [
         {
-            title: "Titulo Curso 1",
-            image: "image-not-found.jpg",
-            duration: 12,
+            title: "Trilogia Creativa",
+            image: "course-1.jpg",
             students: 118,
+            duration: 12,
+            level: "Principiante",
             rating: 5.0,
             price: 0,
+            url: "https://educacion.beunik.co/courses/details/18"
         },
         {
-            title: "Titulo Curso 2",
-            image: "image-not-found.jpg",
-            duration: 12,
+            title: "Freestyle con Barbero Monster",
+            image: "course-2.jpg",
             students: 118,
+            duration: 34,
+            level: "Intermedio",
             rating: 5.0,
             price: 25000,
+            url: "https://educacion.beunik.co/courses/details/23"
         },
         {
-            title: "Titulo Curso 3",
-            image: "image-not-found.jpg",
-            duration: 12,
+            title: "Evolución de negocio a empresa",
+            image: "course-3.jpg",
             students: 118,
+            duration: 62,
+            level: "Avanzado",
             rating: 5.0,
             price: 100000,
+            url: "https://educacion.beunik.co/courses/details/51"
         },
     ]
 }

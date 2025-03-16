@@ -1,6 +1,5 @@
-// import Link from "next/link";
 import { AppBar, Box, Toolbar } from "@mui/material";
-import { Logout, Person } from "@mui/icons-material";
+import { DriveFolderUploadOutlined, PersonOutlined, PowerSettingsNewOutlined } from "@mui/icons-material";
 import { MenuMobile } from "./MenuMobile";
 import { MenuPC } from "./MenuPC";
 import { ProfileMenu } from "./ProfileMenu";
@@ -13,11 +12,15 @@ const categories = initialDataCategory.categories;
 const settings = [
   {
     title: "Perfil",
-    icon: <Person />,
+    icon: <PersonOutlined />,
+  },
+  {
+    title: "Mi Contenido",
+    icon: <DriveFolderUploadOutlined/>,
   },
   {
     title: "Cerrar Sesión",
-    icon: <Logout />,
+    icon: <PowerSettingsNewOutlined />,
   },
 ];
 

@@ -1,0 +1,113 @@
+.mainContainer {
+  background-color: $primary;
+  padding-block: min(6rem, 20%);
+}
+
+.profileContainer {
+  padding-bottom: 0;
+  margin-bottom: min(4rem, 10%);
+  width: 100%;
+
+  .userContainer .userWrapper {
+    width: 100%;
+    display: flex;
+  }
+}
+
+.wrapperProfileImg {
+  min-width: 300px;
+  height: 300px;
+  border: 0.5rem solid $white;
+  border-radius: 1rem;
+  overflow: hidden;
+  margin-top: -7rem;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+.wrapperProfileTxt {
+  width: 100%;
+  padding-top: 1rem;
+  padding-left: 1rem;
+
+  .userElements {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+}
+
+.userWrapperInfo {
+  width: 100%;
+}
+
+.userWrapperStats {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+
+  .userStats {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    h4 {
+      font-weight: 700;
+      line-height: 0.75;
+    }
+  }
+}
+
+.relatedGrid {
+  padding-block: 1rem;
+}
+
+.contentWrapper, .reviewsWrapper {
+  width: 100%;
+  margin-top: 2rem;
+}
+
+@media only screen and (max-width: $tablet) {
+  .profileContainer .userContainer .userWrapper {
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .wrapperProfileImg {
+    max-width: 250px;
+    height: 250px;  
+  }
+
+  .wrapperProfileTxt {
+    padding-left: 0;
+
+    .userWrapperInfo {
+      padding-top: 1rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  .userWrapperStats {
+    margin-top: 2rem;
+    flex-direction: row;
+    justify-content: center;
+
+    .userStats {
+      align-items: center;
+    }
+  }
+
+  .relatedGrid, .reviewsWrapper {
+    padding: 1rem;
+  }
+}

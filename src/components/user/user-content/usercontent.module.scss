@@ -1,0 +1,21 @@
+.contentContainer {
+  width: 100%;
+}
+
+.emptyContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 200px;
+  border: 1px solid $line-accordion;
+  border-radius: 0.5rem;
+
+  .emptyTxt {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+}

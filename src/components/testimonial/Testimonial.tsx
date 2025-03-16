@@ -1,9 +1,24 @@
-import Image from "next/image";
-import { Avatar, Box, Card, CardContent, CardHeader, Divider, Grid2 as Grid, Rating, Typography } from "@mui/material";
+import { Grid2 as Grid, Typography } from "@mui/material";
+import { TestimonialCard } from "./TestimonialCard";
 import styles from "./testimonial.module.scss";
-import { initialDataTestimonial } from "@/seed/seedTestimonial";
+import { Testimonial as TestimonialInterface } from "@/interfaces";
 
-const testimonials = initialDataTestimonial.testimonials;
+const testimonials: TestimonialInterface[] = [
+  {
+    description:
+      "Yorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec.",
+    name_client: "Alex Rendón",
+    profession_client: ["Programador"],
+    image_client: "avatar-default.jpg",
+  },
+  {
+    description:
+      "Yorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec.",
+    name_client: "Héctor Paniagua",
+    profession_client: ["Cantante"],
+    image_client: "avatar-default.jpg",
+  },
+];
 
 export function Testimonial() {
   return (
@@ -17,28 +32,8 @@ export function Testimonial() {
       <Grid container spacing={3}>
         {testimonials.map((testimonial) => {
           return (
-            <Grid key={testimonial.name_client} size={{xs: 12, md: 6}}>
-              <Card>
-                <CardContent className={styles.cardContent}>
-                  <Typography variant="body1">{testimonial.description}</Typography>
-                  <Box className={styles.starsTestimonial}>
-                    <Rating defaultValue={testimonial.rating} precision={0.5} size="medium" readOnly />
-                    <Typography fontWeight={700} fontSize={18} lineHeight={0.5} paddingLeft={1.5}>
-                      {(testimonial.rating).toFixed(1)}
-                    </Typography>
-                 </Box>
-                </CardContent>
-                <Divider />
-                <CardHeader
-                  avatar={
-                    <Avatar sx={{ width: 60, height: 60 }} className={styles.avatar}>
-                      <Image src={`/${testimonial.image_client}`} alt={testimonial.name_client} width={100} height={100} />
-                    </Avatar>
-                  }
-                  title={testimonial.name_client}
-                  subheader={testimonial.profession_client[0]}
-                />
-              </Card>
+            <Grid key={testimonial.name_client} size={{ xs: 12, md: 6 }}>
+              <TestimonialCard testimonial={testimonial} />
             </Grid>
           );
         })}
