@@ -23,12 +23,11 @@ export const BlogCard = ({ blog }: Props) => {
       <CardContent className={styles.blogCardContent}>
         <Chip variant="filled" color="primary" size="small" label={timeAgo(blog.created_at)} />
         <Box className={styles.blogDescription}>
-          <Typography variant="body1">{truncateText(blog.description)}</Typography>
+          <Typography variant="body1" lineHeight={1.1}>{truncateText(blog.description, 75)}</Typography>
         </Box>
         <Grid display="flex" alignItems="center" gap={2}>
           <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
-            <AccessTimeOutlined color="secondary" fontSize="small" />
-            <Typography>{blog.duration}min</Typography>
+            <Chip icon={<AccessTimeOutlined color="secondary" fontSize="small" />} label={`${blog.duration}min`} size="small" />
           </Box>
         </Grid>
       </CardContent>
