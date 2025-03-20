@@ -11,7 +11,7 @@ export const BlogGrid = ({ blogs }: Props) => {
   return (
     <Grid container spacing={3} className={styles.courses}>
       {blogs.map((blog) => (
-        <Grid key={blog.title} size={{ xs: 12, sm: 6, lg: 4 }}>
+        <Grid key={blog.documentId} size={{ xs: 12, sm: 6, lg: 4 }}>
           <BlogCard blog={blog} />
         </Grid>
       ))}

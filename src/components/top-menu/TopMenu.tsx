@@ -1,13 +1,8 @@
 import { AppBar, Box, Toolbar } from "@mui/material";
 import { DriveFolderUploadOutlined, PersonOutlined, PowerSettingsNewOutlined } from "@mui/icons-material";
-import { MenuMobile } from "./MenuMobile";
-import { MenuPC } from "./MenuPC";
-import { ProfileMenu } from "./ProfileMenu";
-import { ButtonsMenu } from "./ButtonsMenu";
-import { initialDataCategory } from "@/seed/seedCategory";
+import { MenuMobile, MenuPC, ProfileMenu, ButtonsMenu} from '../';
+import { getCategories } from "@/lib";
 import styles from "./topmenu.module.scss";
-
-const categories = initialDataCategory.categories;
 
 const settings = [
   {
@@ -24,7 +19,10 @@ const settings = [
   },
 ];
 
-export const TopMenu = () => {
+export const TopMenu = async () => {
+
+  const categories = await getCategories();
+
   const isAuth = true;
 
   return (

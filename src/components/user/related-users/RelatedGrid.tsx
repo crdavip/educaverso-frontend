@@ -1,13 +1,19 @@
 import { Grid2 as Grid } from "@mui/material";
-import { User } from "@/interfaces";
-import styles from "./related.module.scss";
 import { RelatedCard } from "./RelatedCard";
+import { getUsers } from "@/lib";
+import { UserDetail } from "@/interfaces";
+import styles from "./related.module.scss";
 
 interface Props {
-  users: User[];
+  category?: string;
 }
 
-export const RelatedGrid = ({ users }: Props) => {
+export const RelatedGrid = async ({ category }: Props) => {
+
+    // const {data} = await getUsersByCategory(category);
+    const {data} = await getUsers();
+    const users: UserDetail[] = data;
+
   return (
     <Grid container spacing={2} className={styles.users}>
       {users.map((user) => (

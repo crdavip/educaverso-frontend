@@ -11,7 +11,7 @@ export const TestimonialGrid = ({ testimonials }: Props) => {
   return (
     <Grid container spacing={3} className={styles.testimonials}>
       {testimonials.map((testimonial) => (
-        <Grid key={testimonial.name_client} size={{ xs: 12, sm: 6 }}>
+        <Grid key={testimonial.documentId} size={{ xs: 12, sm: 6 }}>
           <TestimonialCard testimonial={testimonial} />
         </Grid>
       ))}

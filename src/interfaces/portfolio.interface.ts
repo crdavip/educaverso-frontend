@@ -1,6 +1,10 @@
+import { Image } from "./image.interface";
+
 export interface Portfolio {
+    documentId: string;
     title: string;
     description?: string;
-    images: string[];
-    created_at: Date;
+    createdAt: Date;
+    images: Image[];
+    slug: string;
 }

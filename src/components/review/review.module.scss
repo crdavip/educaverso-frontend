@@ -1,0 +1,36 @@
+.container {
+    padding-block: min(4rem, 8%);
+    
+    .wrapperTitle {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  
+  .testimonials {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
+    max-width: $desktop;
+  }
+  
+  .starsTestimonial {
+    display: flex;
+    align-items: center;
+    margin-top: 0.5rem;
+  }
+  
+  .avatar img {
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: center;
+  }
+  
+  @media only screen and (max-width: $tablet) {
+    .container {
+      padding-inline: min(1rem, 8%);
+    }
+  }

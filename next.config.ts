@@ -5,6 +5,14 @@ const nextConfig: NextConfig = {
     includePaths: ['./src'],
     prependData: '@import "theme.scss";',
   },
+  images: {
+      remotePatterns: [
+        {
+          protocol: 'http',
+          hostname: 'localhost'
+        },
+      ]
+    }
 };
 
 export default nextConfig;

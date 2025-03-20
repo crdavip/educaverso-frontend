@@ -1,11 +1,15 @@
 import { Container, Grid2 as Grid } from "@mui/material";
 import { Hero, Profits, UserGrid, Testimonial } from "@/components";
-import { initialDataUser } from "@/seed/seedUser";
+// import { initialDataUser } from "@/seed/seedUser";
 import styles from "./home.module.scss";
 
-const users = initialDataUser.users;
+import { getUsers } from "@/lib";
+import { UserDetail } from "@/interfaces";
 
-export default function HomePage() {
+export default async function HomePage() {
+  const { data } = await getUsers();
+  const users: UserDetail[] = data;
+
   return (
     <Grid component="main" className={styles.main}>
       <Hero />

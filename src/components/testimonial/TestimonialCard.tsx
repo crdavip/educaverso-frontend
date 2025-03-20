@@ -1,23 +1,22 @@
 import Image from "next/image";
 import { Card, CardContent, Typography, Divider, CardHeader, Avatar } from "@mui/material";
 import { Testimonial } from "@/interfaces";
-import styles from "./testimonial.module.scss";
 import { UserRating } from "../rating/UserRating";
+import styles from "./testimonial.module.scss";
 
 interface Props {
   testimonial: Testimonial;
 }
 
 export const TestimonialCard = ({ testimonial }: Props) => {
+
   return (
     <Card>
       <CardContent>
         <Typography variant="body1" sx={{ mb: 2 }}>
           {testimonial.description}
         </Typography>
-        {
-          !!testimonial.rating && <UserRating rating={testimonial.rating} />
-        }
+        {!!testimonial.rating && <UserRating rating={testimonial.rating} />}
       </CardContent>
       <Divider />
       <CardHeader
@@ -27,7 +26,7 @@ export const TestimonialCard = ({ testimonial }: Props) => {
           </Avatar>
         }
         title={testimonial.name_client}
-        subheader={testimonial.profession_client[0]}
+        subheader={testimonial.profession_client}
       />
     </Card>
   );

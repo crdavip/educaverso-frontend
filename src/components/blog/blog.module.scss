@@ -51,9 +51,16 @@
       flex-direction: column;
       justify-content: space-between;
       align-items: flex-start;
+      position: relative;
   
       .blogDescription {
         margin-block: 0.5rem;
+      }
+
+      .zoomButton {
+        position: absolute;
+        right: 0;
+        bottom: 0;
       }
     }
   }

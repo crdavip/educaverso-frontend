@@ -1,8 +1,10 @@
+import { notFound } from "next/navigation";
 import { Container, Typography } from "@mui/material";
 import { TitlePg, UserGrid } from "@/components";
-import { initialDataCategory } from "@/seed/seedCategory";
-import { notFound } from "next/navigation";
-import { initialDataUser } from "@/seed/seedUser";
+import { getCategoriesBySlug, getUsersByCategory } from "@/lib";
+
+import { ProfessionalCategories } from "@/interfaces/category.interface";
+import { UserDetail } from "@/interfaces";
 
 interface Props {
   params: Promise<{
@@ -13,14 +15,12 @@ interface Props {
 export default async function CategoryPage({ params }: Props) {
   const { slug } = await params;
 
-  const professionalCategories = (initialDataCategory.categories).find((category) => category.slug === slug)
-
-  if (!professionalCategories) {
-    notFound();
-  }
-
-  const { name } = professionalCategories;
-  const users = initialDataUser.users.filter((user) => user.category.includes(name));
+  const categories: ProfessionalCategories[] = await getCategoriesBySlug(slug);
+  if (categories.length === 0) notFound();
+  
+  const { name } = categories[0];
+  const {data} = await getUsersByCategory(slug);
+  const users: UserDetail[] = data;
 
   return (
     <>

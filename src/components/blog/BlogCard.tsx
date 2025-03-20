@@ -1,6 +1,7 @@
+import Link from "next/link";
 import Image from "next/image";
-import { AccessTimeOutlined } from "@mui/icons-material";
-import { Card, CardContent, Typography, Grid2 as Grid, Box, Chip } from "@mui/material";
+import { AccessTimeOutlined, ZoomOutMap } from "@mui/icons-material";
+import { Card, CardContent, Typography, Grid2 as Grid, Box, Chip, IconButton } from "@mui/material";
 import { Blog } from "@/interfaces";
 import { timeAgo, truncateText } from "@/helpers";
 import styles from "./blog.module.scss";
@@ -13,15 +14,17 @@ export const BlogCard = ({ blog }: Props) => {
   return (
     <Card className={styles.blogCard}>
       <CardContent className={styles.blogCardHeader}>
-        <Image src={`/blogs/${blog.image}`} alt={blog.title} width={300} height={300} />
+        <Image src={`${process.env.NEXT_PUBLIC_API_BASE_URL}${blog.image.url}`} alt={blog.title} width={300} height={300} />
         <Box className={styles.blogCardHeaderBg}>
-          <Typography variant="h6" fontWeight={700}>
-            {blog.title}
-          </Typography>
+          <Link href={`/blog/${blog.slug}`}>
+            <Typography variant="h6" fontWeight={700}>
+              {blog.title}
+            </Typography>
+          </Link>
         </Box>
       </CardContent>
       <CardContent className={styles.blogCardContent}>
-        <Chip variant="filled" color="primary" size="small" label={timeAgo(blog.created_at)} />
+        <Chip variant="filled" color="primary" size="small" label={timeAgo(new Date(blog.createdAt))} />
         <Box className={styles.blogDescription}>
           <Typography variant="body1" lineHeight={1.1}>{truncateText(blog.description, 75)}</Typography>
         </Box>
@@ -30,6 +33,11 @@ export const BlogCard = ({ blog }: Props) => {
             <Chip icon={<AccessTimeOutlined color="secondary" fontSize="small" />} label={`${blog.duration}min`} size="small" />
           </Box>
         </Grid>
+        <Link href={`/blog/${blog.slug}`}>
+          <IconButton className={styles.zoomButton} aria-label="Zoom image">
+              <ZoomOutMap color="secondary" fontSize="large" />
+          </IconButton>
+        </Link>
       </CardContent>
     </Card>
   );

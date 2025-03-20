@@ -1,11 +1,11 @@
-import { User } from "@/interfaces";
+import { UserDetail } from "@/interfaces";
 import { Grid2 as Grid } from "@mui/material";
 
 import { UserCard } from "./UserCard";
 import styles from "./usergrid.module.scss";
 
 interface Props {
-  users: User[];
+  users: UserDetail[];
 }
 
 export const UserGrid = ({ users }: Props) => {

@@ -1,10 +1,10 @@
 import { Card, CardContent, Chip, Typography } from "@mui/material";
-import { Certification } from "@/interfaces";
+import { Certificate } from "@/interfaces";
 import styles from "./certification.module.scss";
 import Image from "next/image";
 
 interface Props {
-  certificate: Certification;
+  certificate: Certificate;
 }
 
 const iconType = {
@@ -16,7 +16,7 @@ export const CertificationCard = ({ certificate }: Props) => {
   return (
     <Card className={styles.certificateCard}>
       <CardContent className={styles.certificateCardContent}>
-        <Image src={`/${iconType[certificate.type]}`} alt="certificate" width={100} height={100} />
+        <Image src={`/${iconType[certificate.type]}`} alt={certificate.title} width={100} height={100} />
         <Typography variant="body1">{certificate.title}</Typography>
         <Chip color="primary" size="small" label={`${certificate.year}`} />
       </CardContent>

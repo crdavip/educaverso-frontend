@@ -11,7 +11,7 @@ export const PortfolioGrid = ({ portfolios }: Props) => {
   return (
     <Grid container spacing={3} className={styles.portfolios}>
       {portfolios.map((portfolio) => (
-        <Grid key={portfolio.title} size={{ xs: 12, sm: 6 }}>
+        <Grid key={portfolio.documentId} size={{ xs: 12, sm: 6 }}>
           <PortfolioCard portfolio={portfolio} />
         </Grid>
       ))}

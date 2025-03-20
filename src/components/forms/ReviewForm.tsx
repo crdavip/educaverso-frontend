@@ -4,7 +4,7 @@ import { Box, Rating, Typography, TextField, Button } from "@mui/material";
 import { useState } from "react";
 
 export const ReviewForm = () => {
-  const [reviewValue, setReviewValue] = useState<number>(Number(0));
+  const [reviewValue, setReviewValue] = useState<number>(Number(5));
 
   return (
     <form>

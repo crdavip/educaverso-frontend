@@ -1,9 +1,8 @@
 export interface Testimonial {
+    documentId: string;
     rating?: number;
     description: string;
     name_client: string;
-    profession_client: ValidProfessions[];
+    profession_client: string;
     image_client: string;
 }
-
-type ValidProfessions = 'Diseñador Grafico'|'Programador'|'Cantante'|'Fitness';
