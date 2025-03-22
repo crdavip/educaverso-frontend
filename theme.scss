@@ -28,15 +28,17 @@ $light-gray: #f4f8fb;
 $light-white: #eaf1f8;
 $line-accordion: #D6D6D6;
 
+@use "sass:color";
+
 $gray: #FFD933;
-$gray-10: lighten($gray, 10%);
-$gray-20: lighten($gray, 20%);
-$gray-30: lighten($gray, 30%);
-$gray-40: lighten($gray, 40%);
-$gray-50: lighten($gray, 50%);
-$gray-60: lighten($gray, 60%);
-$gray-70: lighten($gray, 70%);
-$gray-80: lighten($gray, 73%);
+$gray-10: color.adjust($gray, $lightness: 10%);
+$gray-20: color.adjust($gray, $lightness: 20%);
+$gray-30: color.adjust($gray, $lightness: 30%);
+$gray-40: color.adjust($gray, $lightness: 40%);
+$gray-50: color.adjust($gray, $lightness: 50%);
+$gray-60: color.adjust($gray, $lightness: 60%);
+$gray-70: color.adjust($gray, $lightness: 70%);
+$gray-80: color.adjust($gray, $lightness: 73%);
 
 $background-gray: #f0eee7;
 

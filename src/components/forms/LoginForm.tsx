@@ -1,3 +1,5 @@
+"use client";
+
 import { EmailRounded, Lock } from "@mui/icons-material";
 import { FormControl, TextField, InputAdornment, Button } from "@mui/material";
 

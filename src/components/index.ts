@@ -22,6 +22,7 @@ export * from "./review/ReviewGrid";
 export * from "./social-icons/SocialIcons";
 export * from "./testimonial/Testimonial";
 export * from "./title-pg/TitlePg";
+export * from "./top-menu/AuthMenu";
 export * from "./top-menu/ButtonsMenu";
 export * from "./top-menu/MenuMobile";
 export * from "./top-menu/MenuPC";
