@@ -19,3 +19,8 @@ export const getBlogsByUser = async (idUser: string) => {
   const {data} = await query(`blogs?filters[userDetail][documentId][$contains]=${idUser}&populate=*`);
   return data;
 }
+
+export const getBlogBySlug = async (slug: string) => {
+  const {data} = await query(`blogs?filters[slug][$contains]=${slug}&populate[userDetail][populate]=*&populate[image][populate]=*`);
+  return data;
+}

@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
 
-export default function CategoriesPage() {
+export default function PortfoliosPage() {
   redirect("/");
 }
