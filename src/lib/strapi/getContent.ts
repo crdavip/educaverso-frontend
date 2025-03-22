@@ -10,17 +10,22 @@ export const getPortfoliosByUser = async (idUser: string) => {
   return data;
 };
 
+export const getPortfolioBySlug = async (slug: string) => {
+  const { data } = await query(`portfolios?filters[slug][$contains]=${slug}&populate[userDetail][populate]=*&populate[images][populate]=*`);
+  return data;
+}
+
 export const getCertificatesByUser = async (idUser: string) => {
   const { data } = await query(`certificates?filters[userDetail][documentId][$contains]=${idUser}&populate=*`);
   return data;
 }
 
 export const getBlogsByUser = async (idUser: string) => {
-  const {data} = await query(`blogs?filters[userDetail][documentId][$contains]=${idUser}&populate=*`);
+  const { data } = await query(`blogs?filters[userDetail][documentId][$contains]=${idUser}&populate=*`);
   return data;
 }
 
 export const getBlogBySlug = async (slug: string) => {
-  const {data} = await query(`blogs?filters[slug][$contains]=${slug}&populate[userDetail][populate]=*&populate[image][populate]=*`);
+  const { data } = await query(`blogs?filters[slug][$contains]=${slug}&populate[userDetail][populate]=*&populate[image][populate]=*`);
   return data;
 }

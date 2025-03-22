@@ -1,14 +1,13 @@
+import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-// import { RelatedGrid } from "@/components";
 import { Container, Grid2 as Grid, Box, Typography, Chip, Divider, Avatar, Card } from "@mui/material";
-import { BlocksRenderer } from '@strapi/blocks-react-renderer';
+import { CalendarMonthOutlined, GridViewOutlined } from "@mui/icons-material";
+import { BlocksRenderer } from "@strapi/blocks-react-renderer";
 import styles from "./blogpage.module.scss";
 
 import { getBlogBySlug } from "@/lib";
 import { Blog } from "@/interfaces";
-import { CalendarMonthOutlined, GridViewOutlined } from "@mui/icons-material";
-import Link from "next/link";
 
 interface Props {
   params: Promise<{
@@ -21,12 +20,11 @@ export default async function BlogPage({ params }: Props) {
 
   const data = await getBlogBySlug(slug);
   const blog: Blog = data[0];
-  console.log(blog);
   if (!blog) notFound();
 
   const profileImage = blog.userDetail.profileImage?.url
-  ? `${process.env.API_BASE_URL}${blog.userDetail.profileImage?.url}`
-  : "/avatar-default.jpg";
+    ? `${process.env.API_BASE_URL}${blog.userDetail.profileImage?.url}`
+    : "/avatar-default.jpg";
 
   return (
     <>
@@ -45,17 +43,34 @@ export default async function BlogPage({ params }: Props) {
                   </Typography>
                   <Box className={styles.blogElements}>
                     <Link href={`/${blog.userDetail.username}`}>
-                      <Chip color="primary" avatar={<Avatar alt={blog.userDetail.username} src={profileImage}/>} label={`@${blog.userDetail.username}`} />
+                      <Chip
+                        color="primary"
+                        avatar={<Avatar alt={blog.userDetail.username} src={profileImage} />}
+                        label={`@${blog.userDetail.username}`}
+                      />
                     </Link>
                     <Link href={`/categoria/${blog.userDetail.category.slug}`}>
-                      <Chip color="secondary" icon={<GridViewOutlined fontSize="small" />} label={`${blog.userDetail.category.name}`} />
+                      <Chip
+                        color="secondary"
+                        icon={<GridViewOutlined fontSize="small" />}
+                        label={`${blog.userDetail.category.name}`}
+                      />
                     </Link>
                     <Typography variant="body1" className={styles.blogDate}>
-                      <CalendarMonthOutlined /> {new Date(blog.createdAt).toLocaleString("es-ES", {day: "numeric", month: "long", year: "numeric"})}
+                      <CalendarMonthOutlined />{" "}
+                      {new Date(blog.createdAt).toLocaleString("es-ES", {
+                        day: "numeric",
+                        month: "long",
+                        year: "numeric",
+                      })}
                     </Typography>
                   </Box>
-                  <Divider sx={{marginBlock: 3}}/>
-                  <Typography variant="body1" className={styles.contentDescription} sx={{ width: { xs: "100%", md: "90%" } }}>
+                  <Divider sx={{ marginBlock: 3 }} />
+                  <Typography
+                    variant="body1"
+                    className={styles.contentDescription}
+                    sx={{ width: { xs: "100%", md: "90%" } }}
+                  >
                     {blog.description}
                   </Typography>
                 </Grid>
