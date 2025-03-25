@@ -10,7 +10,6 @@ interface Props {
 }
 
 export const UserContent = async ({ idUser }: Props) => {
-
   const courses: Course[] = initialDataCourse.courses ?? [];
   const portfolios: Portfolio[] = await getPortfoliosByUser(idUser) ?? [];
   const blogs: Blog[] = await getBlogsByUser(idUser) ?? [];

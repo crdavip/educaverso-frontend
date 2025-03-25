@@ -3,6 +3,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Container, Grid2 as Grid, Box, Typography, Chip, Avatar, Divider, Card } from "@mui/material";
 import { GridViewOutlined, CalendarMonthOutlined } from "@mui/icons-material";
+import { PortfolioSlideShow } from "@/components";
 import styles from "./portfolio.module.scss";
 
 import { getPortfolioBySlug } from "@/lib";
@@ -82,15 +83,7 @@ export default async function PortafolioPage({ params }: Props) {
             </Grid>
             <Grid className={styles.contentWrapper} size={12}>
               <Card className={styles.contentCard}>
-                {portfolio.images?.map((image) => (
-                  <Image
-                    key={image.documentId}
-                    src={`${process.env.NEXT_PUBLIC_API_BASE_URL}${image.url}`}
-                    alt={image.name}
-                    width={800}
-                    height={800}
-                  />
-                ))}
+                <PortfolioSlideShow images={portfolio.images} />
               </Card>
             </Grid>
           </Grid>

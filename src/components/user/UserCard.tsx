@@ -14,7 +14,7 @@ interface Props {
 export const UserCard = ({ user }: Props) => {
   const totalRating = user.reviews.reduce((acumulador, review) => acumulador + review.rating, 0);
   const ratingProm = user.reviews.length > 0 ? totalRating / user.reviews.length : 0;
-
+  
   const profileImage = user.profileImage
     ? `${process.env.API_BASE_URL}${user.profileImage.url}`
     : "/avatar-default.jpg";
@@ -42,7 +42,7 @@ export const UserCard = ({ user }: Props) => {
         </Box>
         <Box className={styles.userCardContentRight}>
           <Box className={styles.userCardStats}>
-            {/* <Typography variant="h4">{formatNumber(user.totalContents)}</Typography> */}
+            {/* <Typography variant="h4">{formatNumber(totalContent)}</Typography> */}
             <Typography variant="h4">{formatNumber(Math.floor(Math.random() * (100 - 1 + 1)) + 1)}</Typography>
             <Typography variant="caption">Contenidos</Typography>
           </Box>

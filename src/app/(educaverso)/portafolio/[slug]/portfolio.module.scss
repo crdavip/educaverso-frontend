@@ -1,120 +1,122 @@
 .mainContainer {
-    background-color: $primary;
-    padding-block: min(6rem, 20%);
-  }
-  
-  .portfolioContainer {
-    padding-bottom: 0;
-    margin-bottom: min(4rem, 10%);
+  background-color: $primary;
+  padding-block: min(6rem, 20%);
+}
+
+.portfolioContainer {
+  padding-bottom: 0;
+  margin-bottom: min(4rem, 10%);
+  width: 100%;
+
+  .headerContainer .portfolioWrapper {
     width: 100%;
-  
-    .headerContainer .portfolioWrapper {
-      width: 100%;
+    display: flex;
+  }
+}
+
+.wrapperPortfolioImg {
+  min-width: 300px;
+  height: 300px;
+  border: 0.5rem solid $white;
+  border-radius: 1rem;
+  overflow: hidden;
+  margin-top: -7rem;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+.wrapperPortfolioTxt {
+  width: 100%;
+  padding-top: 1rem;
+  padding-left: 1rem;
+
+  .portfolioElements {
+    display: flex;
+    align-items: center;
+    margin-top: 0.5rem;
+    gap: 0.5rem;
+
+    a {
+      display: inline-flex;
+    }
+
+    .portfolioDate {
       display: flex;
-      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
     }
   }
-  
-  .wrapperPortfolioImg {
-    min-width: 300px;
-    height: 350px;
-    border: 0.5rem solid $white;
-    border-radius: 1rem;
-    overflow: hidden;
-    margin-top: -7rem;
-  
+}
+
+.portfolioWrapperInfo {
+  width: 100%;
+}
+
+.relatedGrid {
+  padding-block: 1rem;
+}
+
+.contentWrapper {
+  width: 100%;
+  margin-top: 2rem;
+
+  .contentCard {
+    padding: 2rem;
+
     img {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
+      height: auto;
     }
   }
-  
-  .wrapperPortfolioTxt {
-    width: 100%;
-    padding-top: 1rem;
-  
-    .portfolioElements {
-      display: flex;
-      align-items: center;
-      margin-top: 1rem;
-      gap: 0.5rem;
-  
-      a {
-        display: inline-flex;
-      }
-  
-      .portfolioDate {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-      }
-    }
-  }
-  
-  .portfolioWrapperInfo {
-    width: 100%;
-  }
-  
-  .relatedGrid {
-    padding-block: 1rem;
-  }
-  
-  .contentWrapper {
-    width: 100%;
-    margin-top: 2rem;
-  
-    .contentCard {
-      padding: 2rem;
+}
 
-      img {
-        width: 100%;
-        height: auto;
-      }
-    }
+@media only screen and (max-width: $tablet) {
+  .portfolioContainer .headerContainer .portfolioWrapper {
+    align-items: center;
+    flex-direction: column;
   }
-  
-  @media only screen and (max-width: $tablet) {
-    .portfolioContainer .headerContainer .portfolioWrapper {
-      align-items: center;
-      flex-direction: column;
-    }
-  
-    .wrapperPortfolioImg {
-      max-width: 250px;
-      height: 250px;
-    }
-  
-    .wrapperPortfolioTxt .portfolioWrapperInfo {
-      padding-top: 1rem;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-  
-      .contentDescription {
-        width: 90% !important;
-        text-align: justify;
-      }
-  
-  
-    .portfolioElements {
-      display: grid !important;
-      grid-template-columns: auto auto;
-      grid-template-areas:
+
+  .wrapperPortfolioImg {
+    max-width: 250px;
+    height: 250px;
+  }
+
+  .wrapperPortfolioTxt .portfolioWrapperInfo {
+    padding-top: 1rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contentDescription {
+    width: 90% !important;
+    text-align: justify;
+  }
+
+  .portfolioElements {
+    display: grid !important;
+    grid-template-columns: auto auto;
+    grid-template-areas:
       "chip1 chip2"
       "date date";
-  
-      .portfolioDate {
-        justify-content: center;
-        grid-area: date;
-      }
-    }
-  
-    .relatedGrid {
-      padding: 1rem;
+
+    .portfolioDate {
+      justify-content: center;
+      grid-area: date;
     }
   }
-  
+
+  .contentWrapper .contentCard {
+    padding: 1rem;
+  }
+
+  .relatedGrid {
+    padding: 1rem;
+  }
+}

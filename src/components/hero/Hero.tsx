@@ -2,6 +2,7 @@ import Image from "next/image"
 import { Button, Container, Grid2 as Grid, Typography } from "@mui/material"
 
 import styles from "./hero.module.scss";
+import Link from "next/link";
 
 export const Hero = () => {
   return (
@@ -16,12 +17,14 @@ export const Hero = () => {
           Únete a nuestra comunidad de profesionales y muestra tu talento. Comparte tu experiencia y vende tus cursos
           para alcanzar nuevas oportunidades.
         </Typography>
-        <Button variant="contained" color="secondary">
-          Explorar
-        </Button>
+        <Link href="/explorar">
+          <Button variant="contained" color="secondary">
+            Explorar
+          </Button>
+        </Link>
       </Grid>
       <Grid className={styles.sliderImg} size={{xs: 12, md: 6}}>
-        <Image src="/hero-img.png" alt="Hero Img" width={1024} height={1024} priority />
+        <Image src="/hero-img-00.png" alt="Hero Img" width={1024} height={1024} priority />
       </Grid>
     </Grid>
   </Container>

@@ -1,0 +1,59 @@
+.swiper-slide {
+  /* Center slide text vertically */
+  display: flex;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.swiper {
+  width: 100%;
+  height: 720px;
+  margin-left: auto;
+  margin-right: auto;
+  --swiper-navigation-color: #ffd933;
+  --swiper-pagination-color: #ffd933;
+}
+
+.swiper-slide {
+  background-size: cover;
+  background-position: center;
+}
+
+.mySwiper {
+  height: 150px !important;
+  box-sizing: border-box;
+  padding: 10px 0;
+  cursor: pointer;
+}
+
+.mySwiper .swiper-slide {
+  width: 25%;
+  height: 100%;
+  opacity: 0.4;
+}
+
+.mySwiper .swiper-slide-thumb-active {
+  opacity: 1;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media only screen and (max-width: $tablet) {
+  .swiper {
+    height: 300px;
+  }
+
+  .mySwiper {
+    height: 75px !important;
+  }
+}

@@ -19,6 +19,7 @@ export * from "./profits/Profits";
 export * from "./rating/UserRating";
 export * from "./review/ReviewCard";
 export * from "./review/ReviewGrid";
+export * from "./slideshow/PortfolioSlideShow";
 export * from "./social-icons/SocialIcons";
 export * from "./testimonial/Testimonial";
 export * from "./title-pg/TitlePg";

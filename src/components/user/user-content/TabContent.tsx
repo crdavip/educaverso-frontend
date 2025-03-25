@@ -36,6 +36,7 @@ export const TabContent = ({courses, portfolios, blogs, reviews, certificates}: 
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
   };
+
   return (
     <TabContext value={value}>
       <Box className={styles.contentHeader} sx={{ borderBottom: 1, borderColor: "divider" }}>
