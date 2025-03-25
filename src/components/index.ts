@@ -31,6 +31,7 @@ export * from "./top-menu/ProfileMenu";
 export * from "./top-menu/TopMenu";
 export * from "./user/related-users/RelatedCard";
 export * from "./user/related-users/RelatedGrid";
+export * from "./user/total-content/TotalContent";
 export * from "./user/user-content/EmptyContent";
 export * from "./user/user-content/TabContent";
 export * from "./user/user-content/UserContent";

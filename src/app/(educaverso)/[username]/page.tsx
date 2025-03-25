@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Box, Chip, Container, Divider, Grid2 as Grid, Typography } from "@mui/material";
-import { RelatedGrid, ReviewForm, SocialIcons, UserContent, UserRating } from "@/components";
+import { RelatedGrid, ReviewForm, SocialIcons, TotalContent, UserContent, UserRating } from "@/components";
 import styles from "./profile.module.scss";
 
 import { getUserByUserName } from "@/lib";
@@ -56,9 +56,7 @@ export default async function UserNamePage({ params }: Props) {
                 </Grid>
                 <Grid size={{ xs: 12, md: 2 }} className={styles.userWrapperStats}>
                   <Box className={styles.userStats}>
-                    {/* <Typography variant="h4">{user.totalContents.toLocaleString()}</Typography> */}
-                    <Typography variant="h4">{Math.floor(Math.random() * (100 - 1 + 1)) + 1}</Typography>
-                    <Typography variant="h6">Contenidos</Typography>
+                    <TotalContent idUser={user.documentId}/>
                   </Box>
                   <Box className={styles.userStats}>
                     {/* <Typography variant="h4">{user.profileViews.toLocaleString()}</Typography> */}

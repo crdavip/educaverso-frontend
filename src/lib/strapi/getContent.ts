@@ -1,4 +1,5 @@
 import { query } from "./strapi";
+import { Blog, Certificate, Portfolio, Review } from "@/interfaces";
 
 export const getReviewsByUser = async (idUser: string) => {
   const { data } = await query(`reviews/?filters[reviewed][documentId][$contains]=${idUser}&populate[reviewer][populate]=*`);
@@ -28,4 +29,14 @@ export const getBlogsByUser = async (idUser: string) => {
 export const getBlogBySlug = async (slug: string) => {
   const { data } = await query(`blogs?filters[slug][$contains]=${slug}&populate[userDetail][populate]=*&populate[image][populate]=*`);
   return data;
+}
+
+export const getTotalContents = async (idUser: string) => {
+  const portfolios: Portfolio[] = await getPortfoliosByUser(idUser) ?? [];
+  const blogs: Blog[] = await getBlogsByUser(idUser) ?? [];
+  const reviews: Review[] = await getReviewsByUser(idUser) ?? [];
+  const certificates: Certificate[] = await getCertificatesByUser(idUser) ?? [];
+
+  const totalContents = portfolios.length + blogs.length + reviews.length + certificates.length;
+  return totalContents;
 }

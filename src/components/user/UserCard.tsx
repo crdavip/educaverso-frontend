@@ -6,6 +6,7 @@ import { SocialIcons } from "../social-icons/SocialIcons";
 import { formatNumber } from "@/helpers";
 import { UserRating } from "../rating/UserRating";
 import styles from "./usergrid.module.scss";
+import { TotalContent } from "./total-content/TotalContent";
 
 interface Props {
   user: UserDetail;
@@ -42,9 +43,7 @@ export const UserCard = ({ user }: Props) => {
         </Box>
         <Box className={styles.userCardContentRight}>
           <Box className={styles.userCardStats}>
-            {/* <Typography variant="h4">{formatNumber(totalContent)}</Typography> */}
-            <Typography variant="h4">{formatNumber(Math.floor(Math.random() * (100 - 1 + 1)) + 1)}</Typography>
-            <Typography variant="caption">Contenidos</Typography>
+            <TotalContent idUser={user.documentId}/>
           </Box>
           <Box className={styles.userCardStats}>
             {/* <Typography variant="h4">{formatNumber(user.profileViews)}</Typography> */}
