@@ -1,12 +1,18 @@
 export interface Course {
-    title: string;
-    image: string;
-    students: number;
-    duration: number;
-    level: ValidLevel;
-    rating: number;
-    price: number;
-    url: string;
+    courseId:              number;
+    name:                  string;
+    originalPrice:         string;
+    discountPercentage:    string;
+    priceWithDiscount:     string;
+    averageRating:         string;
+    totalRatings:          number;
+    durationInSeconds:     number;
+    mainImage:             string;
+    createdAt:             Date;
+    experienceLevel:       ValidLevel;
+    mainVideoUploadStatus: string;
+    status:                string;
+    numberOfStudents:      number;
 }
 
-export type ValidLevel = 'Principiante'|'Intermedio'|'Avanzado';
+export type ValidLevel = 'junior'|'mid'|'senior';

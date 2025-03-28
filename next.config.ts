@@ -11,6 +11,10 @@ const nextConfig: NextConfig = {
           protocol: 'http',
           hostname: 'localhost'
         },
+        {
+          protocol: 'https',
+          hostname: `${process.env.AZURE_STORAGE_ACCOUNT}.blob.core.windows.net`
+        },
       ]
     }
 };

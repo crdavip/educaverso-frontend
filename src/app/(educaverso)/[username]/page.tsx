@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Box, Chip, Container, Divider, Grid2 as Grid, Typography } from "@mui/material";
@@ -11,6 +12,26 @@ interface Props {
   params: Promise<{
     username: string;
   }>;
+}
+
+export async function generateMetadata(
+  { params }: Props,
+): Promise<Metadata> {
+
+  const { username } = await params
+ 
+  const { data } = await getUserByUserName(username);
+  const user: UserDetail = data[0];
+ 
+  return {
+    title: `${user.user.username} | Educaverso`,
+    description: user.description,
+    openGraph: {
+      title: `${user.user.username} | Educaverso`,
+      description: user.description,
+      images: [`${process.env.API_BASE_URL}${user.profileImage?.url ?? "/avatar-default.jpg"}`],
+    },
+  }
 }
 
 export default async function UserNamePage({ params }: Props) {

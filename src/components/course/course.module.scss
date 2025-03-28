@@ -32,11 +32,19 @@
     gap: 0.5rem;
 
     h6 {
+      text-transform: capitalize;
       min-height: 3rem;
     }
 
     a {
         color: $black;
+    }
+
+    .discount {
+      text-decoration: line-through;
+      margin-left: 0.5rem;
+      font-size: 0.9rem;
+      color: $line-accordion;
     }
   }
 }
