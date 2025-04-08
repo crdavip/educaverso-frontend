@@ -1,10 +1,25 @@
 "use client";
 
-import { Box, Rating, Typography, TextField, Button } from "@mui/material";
 import { useState } from "react";
+import { Box, Rating, Typography, TextField, Button, IconButton } from "@mui/material";
+import { Add, Remove } from "@mui/icons-material";
 
-export const ReviewForm = () => {
+import styles from "./forms.module.scss";
+
+interface Props {
+  reviewed: string;
+}
+
+export const ReviewForm = ({reviewed}: Props) => {
   const [reviewValue, setReviewValue] = useState<number>(Number(5));
+
+  const onIncrease = () => {
+    setReviewValue(Number(reviewValue + 0.5));
+  };
+
+  const onDecrease = () => {
+    setReviewValue(Number(reviewValue - 0.5));
+  };
 
   return (
     <form>
@@ -19,17 +34,25 @@ export const ReviewForm = () => {
             setReviewValue(Number(newValue));
           }}
         />
-        <Typography fontWeight={700} fontSize={22} lineHeight={0.5} paddingLeft={1.5}>
-          {reviewValue?.toFixed(1)}
-        </Typography>
+        <Box className={styles.ratingControl}>
+          <IconButton aria-label="Reducir calificación" onClick={onDecrease} className={styles.ratingButtons} disabled={reviewValue <= 0}>
+            <Remove />
+          </IconButton>
+          <Typography className={styles.ratingText}>{reviewValue.toFixed(1)}</Typography>
+          <IconButton aria-label="Aumentar calificación" onClick={onIncrease} className={styles.ratingButtons} disabled={reviewValue >= 5}>
+            <Add />
+          </IconButton>
+        </Box>
       </Box>
+      <input type="hidden" name="reviewed" value={reviewed} />
       <TextField
-        id="description"
+        type="text"
+        name="description"
         label="Descripción"
-        fullWidth
+        placeholder="Añade un comentario..."
         multiline
         rows={4}
-        placeholder="Añade un comentario..."
+        fullWidth
       />
       <Button type="submit" variant="contained" sx={{ mt: 2 }}>
         Enviar

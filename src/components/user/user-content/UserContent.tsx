@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import { Blog, Certificate, Course, Portfolio, Review } from "@/interfaces";
 import { TabContent } from "./TabContent";
-import { getBlogsByUser, getCertificatesByUser, getCoursesByUser, getPortfoliosByUser, getReviewsByUser } from "@/lib";
+import { getBlogsByUser, getCertificatesByUser, getCoursesByUser, getPortfoliosByUser, getReviewsByUser } from "@/data";
 import styles from "./usercontent.module.scss";
 
 interface Props {

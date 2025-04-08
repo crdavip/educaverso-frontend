@@ -1,9 +1,8 @@
 import { Container, Grid2 as Grid } from "@mui/material";
 import { Hero, Profits, UserGrid, Testimonial } from "@/components";
-// import { initialDataUser } from "@/seed/seedUser";
 import styles from "./home.module.scss";
 
-import { getUsers } from "@/lib";
+import { getUsers } from "@/data";
 import { UserDetail } from "@/interfaces";
 
 export default async function HomePage() {

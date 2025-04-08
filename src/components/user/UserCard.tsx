@@ -5,8 +5,8 @@ import { UserDetail } from "@/interfaces";
 import { SocialIcons } from "../social-icons/SocialIcons";
 import { formatNumber } from "@/helpers";
 import { UserRating } from "../rating/UserRating";
-import styles from "./usergrid.module.scss";
 import { TotalContent } from "./total-content/TotalContent";
+import styles from "./usergrid.module.scss";
 
 interface Props {
   user: UserDetail;
@@ -23,13 +23,13 @@ export const UserCard = ({ user }: Props) => {
   return (
     <Card className={styles.userCard}>
       <CardContent className={styles.userCardHeader}>
-        <Link href={`/${user.username}`}>
-          <Image src={profileImage} alt={user.username} width={300} height={300} />
+        <Link href={`/${user.user.username}`}>
+          <Image src={profileImage} alt={user.user.username} width={300} height={300} />
           <Box className={styles.userCardHeaderBg}>
             <Typography variant="h5" fontWeight={700}>
-              {user.user.username}
+              {`${user.firstname} ${user.lastname}`}
             </Typography>
-            <Chip color="primary" size="small" label={`@${user.username}`} />
+            <Chip color="primary" size="small" label={`@${user.user.username}`} />
           </Box>
         </Link>
       </CardContent>

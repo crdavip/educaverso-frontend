@@ -1,34 +1,34 @@
-import { query } from "./strapi";
+import { queryStrapi } from "./strapi";
 import { getCoursesByUser } from "../courses/getContent";
 import { Blog, Certificate, Course, Portfolio, Review } from "@/interfaces";
 
 export const getReviewsByUser = async (idUser: string) => {
-  const { data } = await query(`reviews/?filters[reviewed][documentId][$contains]=${idUser}&populate[reviewer][populate]=*`);
+  const { data } = await queryStrapi(`reviews/?filters[reviewed][documentId][$contains]=${idUser}&populate[reviewer][populate]=*`);
   return data;
 };
 
 export const getPortfoliosByUser = async (idUser: string) => {
-  const { data } = await query(`portfolios?filters[userDetail][documentId][$contains]=${idUser}&populate=*`);
+  const { data } = await queryStrapi(`portfolios?filters[userDetail][documentId][$contains]=${idUser}&populate=*`);
   return data;
 };
 
 export const getPortfolioBySlug = async (slug: string) => {
-  const { data } = await query(`portfolios?filters[slug][$contains]=${slug}&populate[userDetail][populate]=*&populate[images][populate]=*`);
+  const { data } = await queryStrapi(`portfolios?filters[slug][$contains]=${slug}&populate[userDetail][populate]=*&populate[images][populate]=*`);
   return data;
 }
 
 export const getCertificatesByUser = async (idUser: string) => {
-  const { data } = await query(`certificates?filters[userDetail][documentId][$contains]=${idUser}&populate=*`);
+  const { data } = await queryStrapi(`certificates?filters[userDetail][documentId][$contains]=${idUser}&populate=*`);
   return data;
 }
 
 export const getBlogsByUser = async (idUser: string) => {
-  const { data } = await query(`blogs?filters[userDetail][documentId][$contains]=${idUser}&populate=*`);
+  const { data } = await queryStrapi(`blogs?filters[userDetail][documentId][$contains]=${idUser}&populate=*`);
   return data;
 }
 
 export const getBlogBySlug = async (slug: string) => {
-  const { data } = await query(`blogs?filters[slug][$contains]=${slug}&populate[userDetail][populate]=*&populate[image][populate]=*`);
+  const { data } = await queryStrapi(`blogs?filters[slug][$contains]=${slug}&populate[userDetail][populate]=*&populate[image][populate]=*`);
   return data;
 }
 

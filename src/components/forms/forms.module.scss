@@ -1,0 +1,17 @@
+.ratingControl {
+  display: flex;
+  gap: 0.5rem;
+  margin-left: 1rem;
+
+  // .ratingButtons {
+  //   border: 1px solid $line-accordion;
+  // }
+  
+  .ratingText {
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid $line-accordion;
+  }
+} 

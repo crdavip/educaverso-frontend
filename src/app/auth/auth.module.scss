@@ -54,3 +54,21 @@
     }
   }
 }
+
+.welcomeWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 500px;
+
+  .authCard {
+    padding: min(3rem, 7%);
+
+    .authCardTitle {
+      display: flex ;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+  }
+}

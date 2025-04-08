@@ -5,7 +5,7 @@ import { Box, Chip, Container, Divider, Grid2 as Grid, Typography } from "@mui/m
 import { RelatedGrid, ReviewForm, SocialIcons, TotalContent, UserContent, UserRating } from "@/components";
 import styles from "./profile.module.scss";
 
-import { getUserByUserName } from "@/lib";
+import { getUserByUserName } from "@/data";
 import { UserDetail } from "@/interfaces";
 
 interface Props {
@@ -56,15 +56,15 @@ export default async function UserNamePage({ params }: Props) {
           <Grid className={styles.userContainer} size={{ xs: 12, md: 9 }} container>
             <Grid className={styles.userWrapper} size={12}>
               <Box className={styles.wrapperProfileImg}>
-                <Image src={profileImage} alt={user.username} width={500} height={500} />
+                <Image src={profileImage} alt={user.user.username} width={500} height={500} />
               </Box>
               <Grid container className={styles.wrapperProfileTxt}>
                 <Grid size={{ xs: 12, md: 10 }} className={styles.userWrapperInfo}>
                   <Typography variant="h4" fontWeight={700}>
-                    {user.user.username}
+                    {`${user.firstname} ${user.lastname}`}
                   </Typography>
                   <Box className={styles.userElements}>
-                    <Chip color="primary" size="small" label={`@${user.username}`} />
+                    <Chip color="primary" size="small" label={`@${user.user.username}`} />
                     <SocialIcons socials={user.socials} />
                   </Box>
                   <Box sx={{ display: "flex", gap: 2 }}>
@@ -95,7 +95,7 @@ export default async function UserNamePage({ params }: Props) {
                 Crear testimonio
               </Typography>
               <Divider sx={{ marginBottom: 3 }} />
-              <ReviewForm />
+              <ReviewForm reviewed={user.user.username} />
             </Grid>
           </Grid>
 

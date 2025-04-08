@@ -1,6 +1,6 @@
 import { AppBar, Toolbar } from "@mui/material";
 import { MenuMobile, MenuPC, AuthMenu } from "../";
-import { getCategories } from "@/lib";
+import { getCategories } from "@/data";
 import styles from "./topmenu.module.scss";
 
 

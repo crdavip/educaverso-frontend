@@ -1,54 +1,73 @@
-import { AccountBox, EmailRounded, Phone } from "@mui/icons-material";
+"use client";
+
+import { AccountBoxOutlined, EmailOutlined, PhoneOutlined } from "@mui/icons-material";
 import { Button, FormControl, InputAdornment, TextField } from "@mui/material";
+import { SubmitHandler, useForm } from "react-hook-form";
+
+interface FormInputs {
+  fullname: string;
+  email: string;
+  phone: number;
+}
 
 export const ContactForm = () => {
+  const { register, handleSubmit } = useForm<FormInputs>();
+
+  const onSubmit: SubmitHandler<FormInputs> = async (data) => {
+    const { fullname, email, phone } = data;
+    console.log({fullname, email, phone})
+  };
+
   return (
-    <form>
-      <FormControl fullWidth>
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <FormControl fullWidth sx={{mt: 2}}>
         <TextField
-          id="fullname"
+          {...register("fullname", { required: true })}
+          type="text"
           label="Nombre completo"
           slotProps={{
             input: {
               startAdornment: (
                 <InputAdornment position="start">
-                  <AccountBox />
+                  <AccountBoxOutlined />
                 </InputAdornment>
               ),
             },
           }}
           variant="outlined"
-          margin="normal"
+          margin="dense"
         />
         <TextField
-          id="email"
+          {...register("email", { required: true, pattern: /^\S+@\S+$/i })}
+          type="email"
           label="Correo"
           slotProps={{
             input: {
               startAdornment: (
                 <InputAdornment position="start">
-                  <EmailRounded />
+                  <EmailOutlined />
                 </InputAdornment>
               ),
             },
           }}
           variant="outlined"
-          margin="normal"
+          margin="dense"
         />
         <TextField
-          id="phone"
+          {...register("phone", { required: true })}
+          type="number"
           label="Teléfono"
           slotProps={{
             input: {
               startAdornment: (
                 <InputAdornment position="start">
-                  <Phone />
+                  <PhoneOutlined />
                 </InputAdornment>
               ),
             },
           }}
           variant="outlined"
-          margin="normal"
+          margin="dense"
         />
         <Button type="submit" variant="contained" sx={{ width: 200, mt: 2 }}>
           Enviar

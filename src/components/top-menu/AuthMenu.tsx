@@ -1,30 +1,30 @@
+import { redirect } from "next/navigation";
 import { Box } from "@mui/material";
-import { DriveFolderUploadOutlined, PersonOutlined, PowerSettingsNewOutlined } from "@mui/icons-material";
 import { ButtonsMenu } from "./ButtonsMenu";
 import { ProfileMenu } from "./ProfileMenu";
+import { getUserByIdUser, getUserMeLoader } from "@/data";
 
-// import { useAuthStore } from "@/store";
+export const AuthMenu = async () => {
+  const user = await getUserMeLoader();
 
-const settings = [
-  {
-    title: "Perfil",
-    icon: <PersonOutlined />,
-  },
-  {
-    title: "Mi Contenido",
-    icon: <DriveFolderUploadOutlined />,
-  },
-  {
-    title: "Cerrar Sesión",
-    icon: <PowerSettingsNewOutlined />,
-  },
-];
+  if (!user.ok) {
+    return (
+      <Box sx={{ flexGrow: 0, display: "flex" }}>
+        <ButtonsMenu />
+      </Box>
+    );
+  }
 
-export const AuthMenu = () => {
-//   const isAuth = useAuthStore(state => state.isAuth);
+  const { data } = await getUserByIdUser(user.data["documentId"]);
+  const userDetail = data[0];
 
-  const isAuth = true;
+  if (userDetail == null) {
+    redirect("/auth/bienvenido")
+  }
+
   return (
-    <Box sx={{ flexGrow: 0, display: "flex" }}>{!isAuth ? <ButtonsMenu /> : <ProfileMenu settings={settings} />}</Box>
+    <Box sx={{ flexGrow: 0, display: "flex" }}>
+      <ProfileMenu user={userDetail} />
+    </Box>
   );
 };

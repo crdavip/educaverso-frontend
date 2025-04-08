@@ -1,6 +1,6 @@
 import { Typography } from "@mui/material";
 import { formatNumber } from "@/helpers";
-import { getTotalContents } from "@/lib";
+import { getTotalContents } from "@/data";
 
 interface Props {
   idUser: string;

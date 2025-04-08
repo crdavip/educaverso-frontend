@@ -1,7 +1,7 @@
-import { Box, Card, Grid2 as Grid, Typography } from "@mui/material";
 import Link from "next/link";
-import styles from "../auth.module.scss";
+import { Box, Card, Grid2 as Grid, Typography } from "@mui/material";
 import { AuthAlternative, RegisterForm } from "@/components";
+import styles from "../auth.module.scss";
 
 export default function RegistroPage() {
   return (

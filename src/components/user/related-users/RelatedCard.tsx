@@ -14,12 +14,12 @@ export const RelatedCard = ({ user }: Props) => {
     : "/avatar-default.jpg";
 
   return (
-    <Card key={user.username} className={styles.userCard}>
+    <Card key={user.documentId} className={styles.userCard}>
       <CardContent className={styles.userCardHeader}>
-        <Link href={`/${user.username}`}>
-          <Image src={profileImage} alt={user.username} width={300} height={300} />
+        <Link href={`/${user.user.username}`}>
+          <Image src={profileImage} alt={user.user.username} width={300} height={300} />
           <Box className={styles.userCardHeaderBg}>
-            <Chip color="primary" size="small" label={`@${user.username}`} />
+            <Chip color="primary" size="small" label={`@${user.user.username}`} />
           </Box>
         </Link>
       </CardContent>

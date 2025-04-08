@@ -8,7 +8,8 @@ import { User } from "./user.interface";
 
 export interface UserDetail {
     documentId: string;
-    username: string;
+    firstname: string;
+    lastname: string;
     profession: string;
     description: string;
     gender: ValidGenders;

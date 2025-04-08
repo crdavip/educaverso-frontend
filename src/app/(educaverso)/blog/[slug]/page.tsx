@@ -6,7 +6,7 @@ import { CalendarMonthOutlined, GridViewOutlined } from "@mui/icons-material";
 import { BlocksRenderer } from "@strapi/blocks-react-renderer";
 import styles from "./blogpage.module.scss";
 
-import { getBlogBySlug } from "@/lib";
+import { getBlogBySlug } from "@/data";
 import { Blog } from "@/interfaces";
 
 interface Props {
@@ -42,11 +42,11 @@ export default async function BlogPage({ params }: Props) {
                     {blog.title}
                   </Typography>
                   <Box className={styles.blogElements}>
-                    <Link href={`/${blog.userDetail.username}`}>
+                    <Link href={`/${blog.userDetail.user.username}`}>
                       <Chip
                         color="primary"
-                        avatar={<Avatar alt={blog.userDetail.username} src={profileImage} />}
-                        label={`@${blog.userDetail.username}`}
+                        avatar={<Avatar alt={blog.userDetail.user.username} src={profileImage} />}
+                        label={`@${blog.userDetail.user.username}`}
                       />
                     </Link>
                     <Link href={`/categoria/${blog.userDetail.category.slug}`}>

@@ -1,9 +1,9 @@
 import { notFound } from "next/navigation";
 import { Container, Typography } from "@mui/material";
 import { TitlePg, UserGrid } from "@/components";
-import { getCategoriesBySlug, getUsersByCategory } from "@/lib";
 
 import { ProfessionalCategories } from "@/interfaces/category.interface";
+import { getCategoriesBySlug, getUsersByCategory } from "@/data";
 import { UserDetail } from "@/interfaces";
 
 interface Props {

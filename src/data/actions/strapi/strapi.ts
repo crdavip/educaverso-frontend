@@ -1,6 +1,6 @@
 const { API_BASE_URL, API_AUTH_TOKEN } = process.env;
 
-export const query = async (url: string, method: string = "GET") => {
+export const queryStrapi = async (url: string, method: string = "GET") => {
   try {
     const res = await fetch(`${API_BASE_URL}/api/${url}`, {
       method: method,

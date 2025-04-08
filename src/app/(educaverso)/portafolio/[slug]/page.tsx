@@ -6,7 +6,7 @@ import { GridViewOutlined, CalendarMonthOutlined } from "@mui/icons-material";
 import { PortfolioSlideShow } from "@/components";
 import styles from "./portfolio.module.scss";
 
-import { getPortfolioBySlug } from "@/lib";
+import { getPortfolioBySlug } from "@/data";
 import { Portfolio } from "@/interfaces";
 
 interface Props {
@@ -47,11 +47,11 @@ export default async function PortafolioPage({ params }: Props) {
                     {portfolio.title}
                   </Typography>
                   <Box className={styles.portfolioElements}>
-                    <Link href={`/${portfolio.userDetail.username}`}>
+                    <Link href={`/${portfolio.userDetail.user.username}`}>
                       <Chip
                         color="primary"
-                        avatar={<Avatar alt={portfolio.userDetail.username} src={profileImage} />}
-                        label={`@${portfolio.userDetail.username}`}
+                        avatar={<Avatar alt={portfolio.userDetail.user.username} src={profileImage} />}
+                        label={`@${portfolio.userDetail.user.username}`}
                       />
                     </Link>
                     <Link href={`/categoria/${portfolio.userDetail.category.slug}`}>
