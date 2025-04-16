@@ -9,15 +9,15 @@ const testimonials: TestimonialClient[] = [
     description:
       "Yorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec.",
     name_client: "Alex Rendón",
-    profession_client: "Programador",
+    profession_client: "FullStack Sr",
     image_client: "avatar-default.jpg",
   },
   {
     documentId: "qwert1234",
     description:
       "Yorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec.",
-    name_client: "Héctor Paniagua",
-    profession_client: "Cantante",
+    name_client: "Cristian Paniagua",
+    profession_client: "FullStack Jr",
     image_client: "avatar-default.jpg",
   },
 ];

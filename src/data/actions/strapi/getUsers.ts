@@ -1,7 +1,7 @@
 import { queryStrapi } from "./strapi";
 
 export const getUsers = async () => {
-  const { data, meta } = await queryStrapi(`user-details?populate=*`);
+  const { data, meta } = await queryStrapi(`user-details?populate=*&pagination[pageSize]=12`);
   return { data, pagination: meta.pagination };
 };
 

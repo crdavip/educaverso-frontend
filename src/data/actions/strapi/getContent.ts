@@ -12,6 +12,11 @@ export const getPortfoliosByUser = async (idUser: string) => {
   return data;
 };
 
+export const getPortfolios = async () => {
+  const { data } = await queryStrapi(`portfolios?populate[userDetail][populate]=*&populate[images][populate]=*&pagination[pageSize]=9`);
+  return data;
+}
+
 export const getPortfolioBySlug = async (slug: string) => {
   const { data } = await queryStrapi(`portfolios?filters[slug][$contains]=${slug}&populate[userDetail][populate]=*&populate[images][populate]=*`);
   return data;
@@ -19,6 +24,11 @@ export const getPortfolioBySlug = async (slug: string) => {
 
 export const getCertificatesByUser = async (idUser: string) => {
   const { data } = await queryStrapi(`certificates?filters[userDetail][documentId][$contains]=${idUser}&populate=*`);
+  return data;
+}
+
+export const getBlogs = async () => {
+  const { data } = await queryStrapi(`blogs?populate[userDetail][populate]=*&populate[image][populate]=*&pagination[pageSize]=9`);
   return data;
 }
 

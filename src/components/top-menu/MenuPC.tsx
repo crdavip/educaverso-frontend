@@ -29,7 +29,7 @@ export const MenuPC = ({ categories }: Props) => {
       <Box sx={{ mr: 4, display: "inline-flex" }}>
         <Logo />
       </Box>
-      <Box sx={{ display: "flex" }}>
+      <Box sx={{ display: "flex", gap: 2 }}>
         <Button
           id="category-button"
           aria-controls="category-menu"
@@ -37,6 +37,7 @@ export const MenuPC = ({ categories }: Props) => {
           aria-expanded="true"
           color="secondary"
           onClick={handleOpenCategory}
+          sx={{ my: 2 }}
         >
           Categorías <KeyboardArrowDown />
         </Button>
@@ -52,6 +53,11 @@ export const MenuPC = ({ categories }: Props) => {
         <Link href="/explorar">
           <Button color="secondary" sx={{ my: 2, display: "block" }}>
             Explorar
+          </Button>
+        </Link>
+        <Link href={`${process.env.NEXT_PUBLIC_FRONT_COURSES_URL}`}>
+          <Button color="secondary" sx={{ my: 2, display: "block" }}>
+            Cursos
           </Button>
         </Link>
       </Box>

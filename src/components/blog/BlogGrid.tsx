@@ -1,7 +1,8 @@
 import { Grid2 as Grid } from "@mui/material";
 import { Blog } from "@/interfaces";
+
 import { BlogCard } from "./BlogCard";
-import styles from './blog.module.scss'
+import styles from "./blog.module.scss";
 
 interface Props {
   blogs: Blog[];

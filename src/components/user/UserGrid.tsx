@@ -1,5 +1,5 @@
-import { UserDetail } from "@/interfaces";
 import { Grid2 as Grid } from "@mui/material";
+import { UserDetail } from "@/interfaces";
 
 import { UserCard } from "./UserCard";
 import styles from "./usergrid.module.scss";

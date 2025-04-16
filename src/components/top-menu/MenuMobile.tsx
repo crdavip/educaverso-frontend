@@ -89,6 +89,11 @@ export const MenuMobile = ({ categories }: Props) => {
               <Typography color="secondary" sx={{ textAlign: "center" }}>Explorar</Typography>
             </MenuItem>
           </Link>
+          <Link href={`${process.env.NEXT_PUBLIC_FRONT_COURSES_URL}`}>
+            <MenuItem onClick={handleCloseNavMenu}>
+              <Typography color="secondary" sx={{ textAlign: "center" }}>Cursos</Typography>
+            </MenuItem>
+          </Link>
         </Menu>
       </Box>
       <Box sx={{ ml: 2, display: "inline-flex" }}>
