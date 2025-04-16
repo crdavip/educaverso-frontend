@@ -15,10 +15,8 @@ interface Props {
 export const UserCard = ({ user }: Props) => {
   const totalRating = user.reviews.reduce((acumulador, review) => acumulador + review.rating, 0);
   const ratingProm = user.reviews.length > 0 ? totalRating / user.reviews.length : 0;
-  
-  const profileImage = user.profileImage
-    ? `${process.env.API_BASE_URL}${user.profileImage.url}`
-    : "/avatar-default.jpg";
+
+  const profileImage = user.profileImage ? user.profileImage.url : "/avatar-default.jpg";
 
   return (
     <Card className={styles.userCard}>
@@ -43,7 +41,7 @@ export const UserCard = ({ user }: Props) => {
         </Box>
         <Box className={styles.userCardContentRight}>
           <Box className={styles.userCardStats}>
-            <TotalContent idUser={user.documentId}/>
+            <TotalContent idUser={user.documentId} />
           </Box>
           <Box className={styles.userCardStats}>
             {/* <Typography variant="h4">{formatNumber(user.profileViews)}</Typography> */}

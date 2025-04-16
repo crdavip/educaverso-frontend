@@ -1,6 +1,7 @@
 export * from "./blog.interface";
 export * from "./certificate.interface";
 export * from "./couser.interface";
+export * from "./explore.interface";
 export * from "./image.interface";
 export * from "./portfolio.interface";
 export * from "./review.interface";
@@ -8,4 +9,5 @@ export * from "./social.interface";
 export * from "./testimonial.interface";
 export * from "./ui.interface";
 export * from "./user.interface";
+export * from "./usercourse.interface";
 export * from "./userdetail.interface";

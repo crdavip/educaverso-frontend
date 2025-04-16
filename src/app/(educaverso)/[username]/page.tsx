@@ -14,24 +14,21 @@ interface Props {
   }>;
 }
 
-export async function generateMetadata(
-  { params }: Props,
-): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { username } = await params;
 
-  const { username } = await params
- 
   const { data } = await getUserByUserName(username);
   const user: UserDetail = data[0];
- 
+
   return {
     title: `${user.user.username} | Educaverso`,
     description: user.description,
     openGraph: {
       title: `${user.user.username} | Educaverso`,
       description: user.description,
-      images: [`${process.env.API_BASE_URL}${user.profileImage?.url ?? "/avatar-default.jpg"}`],
+      images: [`${user.profileImage?.url ?? "/avatar-default.jpg"}`],
     },
-  }
+  };
 }
 
 export default async function UserNamePage({ params }: Props) {
@@ -40,13 +37,11 @@ export default async function UserNamePage({ params }: Props) {
   const { data } = await getUserByUserName(username);
   const user: UserDetail = data[0];
   if (!user) notFound();
-  
+
   const totalRating = user.reviews.reduce((acumulador, review) => acumulador + review.rating, 0);
   const ratingProm = user.reviews.length > 0 ? totalRating / user.reviews.length : 0;
 
-  const profileImage = user.profileImage
-    ? `${process.env.API_BASE_URL}${user.profileImage.url}`
-    : "/avatar-default.jpg";
+  const profileImage = user.profileImage ? user.profileImage?.url : "/avatar-default.jpg";
 
   return (
     <>
@@ -77,11 +72,13 @@ export default async function UserNamePage({ params }: Props) {
                 </Grid>
                 <Grid size={{ xs: 12, md: 2 }} className={styles.userWrapperStats}>
                   <Box className={styles.userStats}>
-                    <TotalContent idUser={user.documentId}/>
+                    <TotalContent idUser={user.documentId} />
                   </Box>
                   <Box className={styles.userStats}>
                     {/* <Typography variant="h4">{user.profileViews.toLocaleString()}</Typography> */}
-                    <Typography variant="h4">{(Math.floor(Math.random() * (2000000 - 1 + 1)) + 1).toLocaleString()}</Typography>
+                    <Typography variant="h4">
+                      {(Math.floor(Math.random() * (2000000 - 1 + 1)) + 1).toLocaleString()}
+                    </Typography>
                     <Typography variant="h6">Vistas</Typography>
                   </Box>
                 </Grid>

@@ -1,8 +1,7 @@
+import ExplorarPage from "@/components/explorer/ExplorarPage";
+import { getCategories } from "@/data";
 
-export default function ExplorarPage() {
-  return (
-    <div>
-      <h1>Explorar Page</h1>
-    </div>
-  );
+export default async function ServerExplorerPage() {
+  const categories = await getCategories();
+  return <ExplorarPage categories={categories} />;
 }

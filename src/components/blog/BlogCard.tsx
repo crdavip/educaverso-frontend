@@ -14,7 +14,7 @@ export const BlogCard = ({ blog }: Props) => {
   return (
     <Card className={styles.blogCard}>
       <CardContent className={styles.blogCardHeader}>
-        <Image src={`${process.env.NEXT_PUBLIC_API_BASE_URL}${blog.image.url}`} alt={blog.title} width={300} height={300} />
+        <Image src={blog.image.url} alt={blog.title} width={300} height={300} />
         <Box className={styles.blogCardHeaderBg}>
           <Link href={`/blog/${blog.slug}`}>
             <Typography variant="h6" fontWeight={700}>

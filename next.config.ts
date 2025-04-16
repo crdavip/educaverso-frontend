@@ -13,6 +13,10 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
+        hostname: "beunik-blog-pull-zone.b-cdn.net",
+      },
+      {
+        protocol: "https",
         hostname: `${process.env.AZURE_STORAGE_ACCOUNT}.blob.core.windows.net`,
       },
     ],

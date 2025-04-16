@@ -10,9 +10,7 @@ interface Props {
 }
 
 export const ReviewCard = ({ review }: Props) => {
-  const profileImage = review.reviewer.profileImage
-    ? `${process.env.NEXT_PUBLIC_API_BASE_URL}${review.reviewer.profileImage.url}`
-    : "/avatar-default.jpg";
+  const profileImage = review.reviewer.profileImage ? review.reviewer.profileImage.url : "/avatar-default.jpg";
 
   return (
     <Card>
@@ -26,8 +24,8 @@ export const ReviewCard = ({ review }: Props) => {
       <CardHeader
         avatar={
           <Avatar sx={{ width: 60, height: 60 }} className={styles.avatar}>
-            <Link href={`/${review.reviewer.username}`}>
-              <Image src={profileImage} alt={review.reviewer.username} width={100} height={100} />
+            <Link href={`/${review.reviewer.user.username}`}>
+              <Image src={profileImage} alt={review.reviewer.user.username} width={100} height={100} />
             </Link>
           </Avatar>
         }

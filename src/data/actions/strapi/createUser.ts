@@ -2,11 +2,15 @@
 
 import { redirect } from "next/navigation";
 import { createUserService } from "@/data/services/strapi/createUserServices";
+import { getUserMeLoader } from "@/data/services/getUserMeLoader";
 import { schemaUser } from "@/schemas";
 
 export async function createUserAction(prevState: any, formData: FormData) {
+
+  const user = await getUserMeLoader();
+
   const validatedFields = schemaUser.safeParse({
-    user: Number(formData.get("user")),
+    user: user.data?.id,
     firstname: formData.get("firstname"),
     lastname: formData.get("lastname"),
     category: Number(formData.get("category")),
@@ -45,5 +49,5 @@ export async function createUserAction(prevState: any, formData: FormData) {
     };
   }
 
-  redirect("/")
+  redirect("/");
 }

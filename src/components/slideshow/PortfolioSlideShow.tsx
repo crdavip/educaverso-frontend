@@ -35,7 +35,7 @@ export const PortfolioSlideShow = ({ images }: Props) => {
         {images.map((image) => (
           <SwiperSlide key={image.documentId}>
             <Image
-              src={`${process.env.NEXT_PUBLIC_API_BASE_URL}${image.url}`}
+              src={image.url}
               alt={"Gallery Image"}
               width={1024}
               height={800}
@@ -55,7 +55,7 @@ export const PortfolioSlideShow = ({ images }: Props) => {
         {images.map((image) => (
           <SwiperSlide key={image.documentId}>
             <Image
-              src={`${process.env.NEXT_PUBLIC_API_BASE_URL}${image.url}`}
+              src={image.url}
               alt={"Thumbnail Image"}
               width={300}
               height={300}

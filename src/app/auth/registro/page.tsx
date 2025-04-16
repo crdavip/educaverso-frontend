@@ -1,9 +1,11 @@
 import Link from "next/link";
 import { Box, Card, Grid2 as Grid, Typography } from "@mui/material";
 import { AuthAlternative, RegisterForm } from "@/components";
+import { getCategories } from "@/data";
 import styles from "../auth.module.scss";
 
-export default function RegistroPage() {
+export default async function RegistroPage() {
+  const categories = await getCategories();
   return (
     <Grid className={styles.authWrapper}>
       <Card className={styles.authCard}>
@@ -13,7 +15,7 @@ export default function RegistroPage() {
             <Typography>¿Tienes una cuenta?</Typography>
           </Link>
         </Box>
-        <RegisterForm />
+        <RegisterForm categories={categories}/>
       </Card>
       <AuthAlternative />
     </Grid>

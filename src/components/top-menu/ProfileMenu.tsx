@@ -4,7 +4,12 @@ import { useState } from "react";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { IconButton, Avatar, Menu, MenuItem, Typography, Divider, Box } from "@mui/material";
-import { DriveFolderUploadOutlined, PersonOutlined, PowerSettingsNewOutlined } from "@mui/icons-material";
+import {
+  DriveFolderUploadOutlined,
+  LibraryBooksOutlined,
+  PersonOutlined,
+  PowerSettingsNewOutlined,
+} from "@mui/icons-material";
 import { logoutAction } from "@/data";
 import styles from "./topmenu.module.scss";
 import { UserDetail } from "@/interfaces";
@@ -34,9 +39,7 @@ export const ProfileMenu = ({ user }: Props) => {
     handleCloseUserMenu();
   };
 
-  const profileImage = user.profileImage
-  ? `${process.env.NEXT_PUBLIC_API_BASE_URL}${user.profileImage.url}`
-  : "/avatar-default.jpg";
+  const profileImage = user.profileImage ? user.profileImage.url : "/avatar-default.jpg";
 
   return (
     <>
@@ -83,6 +86,13 @@ export const ProfileMenu = ({ user }: Props) => {
           <MenuItem onClick={handleCloseUserMenu}>
             <Typography component="div" variant="body2" sx={{ display: "flex", alignItems: "center", gap: 1 }}>
               <DriveFolderUploadOutlined /> Contenidos
+            </Typography>
+          </MenuItem>
+        </Link>
+        <Link href={`/course-redirect`} className={styles.link} target="_blank">
+          <MenuItem onClick={handleCloseUserMenu}>
+            <Typography component="div" variant="body2" sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+              <LibraryBooksOutlined /> Cursos
             </Typography>
           </MenuItem>
         </Link>

@@ -22,9 +22,7 @@ export default async function BlogPage({ params }: Props) {
   const blog: Blog = data[0];
   if (!blog) notFound();
 
-  const profileImage = blog.userDetail.profileImage?.url
-    ? `${process.env.API_BASE_URL}${blog.userDetail.profileImage?.url}`
-    : "/avatar-default.jpg";
+  const profileImage = blog.userDetail.profileImage ? blog.userDetail.profileImage.url : "/avatar-default.jpg";
 
   return (
     <>
@@ -34,7 +32,7 @@ export default async function BlogPage({ params }: Props) {
           <Grid className={styles.headerContainer} size={{ xs: 12, md: 9 }} container>
             <Grid className={styles.blogWrapper} size={12}>
               <Box className={styles.wrapperBlogImg}>
-                <Image src={`${process.env.API_BASE_URL}${blog.image.url}`} alt={blog.title} width={500} height={500} />
+                <Image src={blog.image.url} alt={blog.title} width={500} height={500} />
               </Box>
               <Grid container className={styles.wrapperBlogTxt}>
                 <Grid size={12} className={styles.blogWrapperInfo}>

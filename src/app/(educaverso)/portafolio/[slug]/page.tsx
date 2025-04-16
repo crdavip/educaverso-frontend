@@ -3,7 +3,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Container, Grid2 as Grid, Box, Typography, Chip, Avatar, Divider, Card } from "@mui/material";
 import { GridViewOutlined, CalendarMonthOutlined } from "@mui/icons-material";
-import { PortfolioSlideShow } from "@/components";
+import { PortfolioSlideShow, RelatedGrid } from "@/components";
 import styles from "./portfolio.module.scss";
 
 import { getPortfolioBySlug } from "@/data";
@@ -22,9 +22,7 @@ export default async function PortafolioPage({ params }: Props) {
   const portfolio: Portfolio = data[0];
   if (!portfolio) notFound();
 
-  const profileImage = portfolio.userDetail.profileImage?.url
-    ? `${process.env.API_BASE_URL}${portfolio.userDetail.profileImage?.url}`
-    : "/avatar-default.jpg";
+  const profileImage = portfolio.userDetail.profileImage ? portfolio.userDetail.profileImage.url : "/avatar-default.jpg";
 
   return (
     <>
@@ -35,7 +33,7 @@ export default async function PortafolioPage({ params }: Props) {
             <Grid className={styles.portfolioWrapper} size={12}>
               <Box className={styles.wrapperPortfolioImg}>
                 <Image
-                  src={`${process.env.API_BASE_URL}${portfolio.images[0].url}`}
+                  src={portfolio.images[0].url}
                   alt={portfolio.title}
                   width={500}
                   height={500}
@@ -93,7 +91,7 @@ export default async function PortafolioPage({ params }: Props) {
               Relacionados
             </Typography>
             <Divider sx={{ marginBottom: 3 }} />
-            {/* <RelatedGrid category={user.category.slug} /> */}
+            <RelatedGrid category={portfolio.userDetail.category.slug} />
           </Grid>
         </Grid>
       </Container>

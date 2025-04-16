@@ -9,9 +9,7 @@ interface Props {
 }
 
 export const RelatedCard = ({ user }: Props) => {
-  const profileImage = user.profileImage
-    ? `${process.env.API_BASE_URL}${user.profileImage.url}`
-    : "/avatar-default.jpg";
+  const profileImage = user.profileImage ? user.profileImage.url : "/avatar-default.jpg";
 
   return (
     <Card key={user.documentId} className={styles.userCard}>

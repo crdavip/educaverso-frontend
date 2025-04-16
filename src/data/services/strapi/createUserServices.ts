@@ -9,7 +9,7 @@ interface CreateUserProps {
   category: number;
   profession: string;
   gender: ValidGenders;
-  profileImage?: File;
+  profileImage?: number;
   description?: string;
   facebook?: string;
   instagram?: string;
@@ -19,10 +19,14 @@ interface CreateUserProps {
 
 const baseUrl = `${API_BASE_URL}/api/`;
 
-export async function uploadImage(image: File) {
+export async function uploadImage(image: File | undefined) {
   const uploadUrl = new URL("upload", baseUrl);
   const formData = new FormData();
-  formData.append("files", image);
+  if (image) {
+    formData.append("files", image);
+  } else {
+    return null;
+  }
 
   try {
     const response = await fetch(uploadUrl, {
@@ -37,7 +41,7 @@ export async function uploadImage(image: File) {
       return null;
     }
 
-    return result[0]?.id || null;
+    return result || null;
   } catch (error) {
     console.error("Upload Service Error:", error);
     return null;
@@ -45,43 +49,38 @@ export async function uploadImage(image: File) {
 }
 
 export async function createUserService(userData: CreateUserProps) {
-    const url = new URL("user-details", baseUrl);
-  
-    let profileImageId: number | null = null;
-    if (userData.profileImage) {
-      profileImageId = await uploadImage(userData.profileImage);
+  const url = new URL("user-details", baseUrl);
+
+  const userDetails = {
+    firstname: userData.firstname,
+    lastname: userData.lastname,
+    profession: userData.profession,
+    gender: userData.gender,
+    description: userData.description,
+    category: userData.category,
+    profileImage: userData.profileImage ?? null,
+    user: userData.user,
+  };
+
+  try {
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${API_AUTH_TOKEN}`,
+      },
+      body: JSON.stringify({ data: userDetails }),
+    });
+
+    const jsonResponse = await response.json();
+    if (!response.ok || jsonResponse.error) {
+      console.error("User Registration Error:", jsonResponse.error);
+      return { error: jsonResponse.error || "Error al registrar el usuario" };
     }
-  
-    const userDetails = {
-      firstname: userData.firstname,
-      lastname: userData.lastname,
-      profession: userData.profession,
-      gender: userData.gender,
-      description: userData.description,
-      category: userData.category,
-      profileImage: profileImageId ? { id: profileImageId } : undefined,
-      user: userData.user,
-    };
-  
-    try {
-      const response = await fetch(url, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${API_AUTH_TOKEN}`,
-        },
-        body: JSON.stringify({ data: userDetails }),
-      });
-  
-      const jsonResponse = await response.json();
-      if (!response.ok || jsonResponse.error) {
-        console.error("User Registration Error:", jsonResponse.error);
-        return { error: jsonResponse.error || "Error al registrar el usuario" };
-      }
-  
-      return jsonResponse;
-    } catch (error) {
-      console.error("User Registration Error:", error);
-      return { error: "Error al registrar el usuario" };
-    }
+
+    return jsonResponse;
+  } catch (error) {
+    console.error("User Registration Error:", error);
+    return { error: "Error al registrar el usuario" };
   }
+}
