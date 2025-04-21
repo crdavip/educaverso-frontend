@@ -1,28 +1,30 @@
 "use client";
 
+import { useActionState, useState } from "react";
 import { AccountBoxOutlined, EmailOutlined, PhoneOutlined } from "@mui/icons-material";
-import { Button, FormControl, InputAdornment, TextField } from "@mui/material";
-import { SubmitHandler, useForm } from "react-hook-form";
+import { Button, Chip, FormControl, InputAdornment, TextField } from "@mui/material";
+import { contactAction } from "@/data";
 
-interface FormInputs {
-  fullname: string;
-  email: string;
-  phone: number;
-}
+const INITIAL_STATE = {
+  zodErrors: null,
+  strapiErrors: null,
+  data: null,
+  message: null,
+};
 
 export const ContactForm = () => {
-  const { register, handleSubmit } = useForm<FormInputs>();
+  const [formState, formAction] = useActionState(contactAction, INITIAL_STATE);
+  const [isSuccess, setIsSuccess] = useState(formState?.message);
 
-  const onSubmit: SubmitHandler<FormInputs> = async (data) => {
-    const { fullname, email, phone } = data;
-    console.log({fullname, email, phone})
+  const handleDelete = () => {
+    setIsSuccess(true);
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <FormControl fullWidth sx={{mt: 2}}>
+    <form action={formAction}>
+      <FormControl fullWidth sx={{ mt: 2 }}>
         <TextField
-          {...register("fullname", { required: true })}
+          name="fullname"
           type="text"
           label="Nombre completo"
           slotProps={{
@@ -36,9 +38,11 @@ export const ContactForm = () => {
           }}
           variant="outlined"
           margin="dense"
+          error={formState?.zodErrors?.fullname}
+          helperText={formState?.zodErrors?.fullname}
         />
         <TextField
-          {...register("email", { required: true, pattern: /^\S+@\S+$/i })}
+          name="email"
           type="email"
           label="Correo"
           slotProps={{
@@ -52,9 +56,11 @@ export const ContactForm = () => {
           }}
           variant="outlined"
           margin="dense"
+          error={formState?.zodErrors?.email}
+          helperText={formState?.zodErrors?.email}
         />
         <TextField
-          {...register("phone", { required: true })}
+          name="phone"
           type="number"
           label="Teléfono"
           slotProps={{
@@ -68,10 +74,19 @@ export const ContactForm = () => {
           }}
           variant="outlined"
           margin="dense"
+          error={formState?.zodErrors?.phone}
+          helperText={formState?.zodErrors?.phone}
         />
         <Button type="submit" variant="contained" sx={{ width: 200, mt: 2 }}>
           Enviar
         </Button>
+        <Chip
+          label={formState?.message}
+          variant="filled"
+          color="secondary"
+          onDelete={handleDelete}
+          sx={{ display: !isSuccess && formState?.message ? "" : "none", mt: 3, width: "200px" }}
+        />
       </FormControl>
     </form>
   );

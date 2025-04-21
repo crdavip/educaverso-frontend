@@ -1,8 +1,10 @@
 // API Strapi
+export * from "./actions/strapi/contactAction";
 export * from "./actions/strapi/getCategories";
 export * from "./actions/strapi/getContent";
 export * from "./actions/strapi/getUsers";
 export * from "./actions/strapi/strapi";
+export * from "./services/strapi/contactService";
 export * from "./services/strapi/createUserServices";
 export * from "./services/strapi/getAllContent";
 // API Courses

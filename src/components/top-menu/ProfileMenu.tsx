@@ -7,7 +7,6 @@ import { IconButton, Avatar, Menu, MenuItem, Typography, Divider, Box } from "@m
 import {
   DriveFolderUploadOutlined,
   LibraryBooksOutlined,
-  PersonOutlined,
   PowerSettingsNewOutlined,
 } from "@mui/icons-material";
 import { logoutAction } from "@/data";
@@ -75,13 +74,6 @@ export const ProfileMenu = ({ user }: Props) => {
           </Box>
         </MenuItem>
         <Divider />
-        <Link href="/perfil" className={styles.link}>
-          <MenuItem onClick={handleCloseUserMenu}>
-            <Typography component="div" variant="body2" sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-              <PersonOutlined /> Perfil
-            </Typography>
-          </MenuItem>
-        </Link>
         <Link href={`/admin-redirect`} className={styles.link} target="_blank">
           <MenuItem onClick={handleCloseUserMenu}>
             <Typography component="div" variant="body2" sx={{ display: "flex", alignItems: "center", gap: 1 }}>
