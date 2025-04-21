@@ -1,5 +1,4 @@
 // API Strapi
-export * from "./actions/strapi/createUser";
 export * from "./actions/strapi/getCategories";
 export * from "./actions/strapi/getContent";
 export * from "./actions/strapi/getUsers";

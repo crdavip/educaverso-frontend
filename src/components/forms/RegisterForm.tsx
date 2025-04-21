@@ -27,11 +27,12 @@ import {
   Step,
   StepLabel,
   Stepper,
+  Typography,
 } from "@mui/material";
 import { registerUserAction } from "@/data";
 import { StrapiErrors } from "../custom/StrapiErrors";
-import { ProfessionalCategories } from "@/interfaces/category.interface";
 import { getSchemaShape, schemaRegisterSteps } from "@/schemas";
+import { ProfessionalCategories } from "@/interfaces";
 
 const professions = [
   "Barbero",
@@ -64,7 +65,10 @@ interface Props {
 }
 
 export const RegisterForm = ({ categories }: Props) => {
-  const [initialState, setInitialState] = useState({ data: {} });
+  const [initialState, setInitialState] = useState({ data: {
+    username: "",
+    email: "",
+  } });
   const [category, setCategory] = useState("");
   const [profession, setProfession] = useState("");
   const [formState, formAction] = useActionState(registerUserAction, initialState);
@@ -370,7 +374,17 @@ export const RegisterForm = ({ categories }: Props) => {
         </FormControl>
 
         {/* Paso 4 */}
-        <Box sx={{ display: activeStep === 3 ? "" : "none" }}>{JSON.stringify(initialState.data, null, 2)}</Box>
+        <Box sx={{ display: activeStep === 3 ? "" : "none" }}>
+          <Typography variant="h5" fontWeight={700}>Vista Previa</Typography>
+          <Box sx={{display: "flex", gap: 1}}>
+            <Typography variant="body1" fontWeight={700}>Usuario:</Typography>
+            <Typography variant="body1" fontWeight={500}>{initialState.data.username}</Typography>
+          </Box>
+          <Box sx={{display: "flex", gap: 1}}>
+            <Typography variant="body1" fontWeight={700}>Correo:</Typography>
+            <Typography variant="body1" fontWeight={500}>{initialState.data.email}</Typography>
+          </Box>
+        </Box>
 
         {/* Navegación de pasos */}
         <Box sx={{ display: "flex", justifyContent: "space-between", mt: 4 }}>

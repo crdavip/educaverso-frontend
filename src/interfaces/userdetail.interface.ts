@@ -1,28 +1,21 @@
-import { Blog, Image } from "./";
-import { ProfessionalCategories } from "./category.interface";
-import { Certificate } from "./certificate.interface";
-import { Portfolio } from "./portfolio.interface";
-import { Review } from "./review.interface";
-import { SocialMedia } from "./social.interface";
-import { User } from "./user.interface";
+import { Blog, Certificate, Image, Portfolio, ProfessionalCategories, SocialMedia, User, Review } from "./";
 
 export interface UserDetail {
-    documentId: string;
-    firstname: string;
-    lastname: string;
-    profession: string;
-    description: string;
-    gender: ValidGenders;
-    profileImage?: Image;
-    reviews: Review[];
-    user: User;
-    // profileViews: number;
-    // totalContents: number;
-    socials: SocialMedia[];
-    portfolios: Portfolio[];
-    certificates: Certificate[];
-    category: ProfessionalCategories;
-    blogs: Blog[];
+  documentId: string;
+  firstname: string;
+  lastname: string;
+  profession: string;
+  description: string;
+  gender: ValidGenders;
+  profileImage?: Image;
+  reviews: Review[];
+  user: User;
+  // profileViews: number;
+  socials: SocialMedia[];
+  portfolios: Portfolio[];
+  certificates: Certificate[];
+  category: ProfessionalCategories;
+  blogs: Blog[];
 }
 
-export type ValidGenders = 'Hombre'|'Mujer'|'Otro';
+export type ValidGenders = "Hombre" | "Mujer" | "Otro";

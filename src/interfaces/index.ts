@@ -1,4 +1,5 @@
 export * from "./blog.interface";
+export * from "./category.interface";
 export * from "./certificate.interface";
 export * from "./couser.interface";
 export * from "./explore.interface";

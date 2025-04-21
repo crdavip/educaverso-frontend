@@ -15,8 +15,7 @@ import {
 } from "@mui/material";
 import { Sort, ExpandLess, ExpandMore } from "@mui/icons-material";
 import { Logo } from "../logo/Logo";
-import { ProfessionalCategories } from "@/interfaces/category.interface";
-
+import { ProfessionalCategories } from "@/interfaces";
 
 interface Props {
   categories: ProfessionalCategories[];

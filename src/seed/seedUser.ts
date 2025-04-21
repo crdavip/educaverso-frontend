@@ -1,4 +1,4 @@
-import { ProfessionalCategories } from "@/interfaces/category.interface";
+import { ProfessionalCategories } from "@/interfaces";
 
 interface SeedUser {
     username: string;

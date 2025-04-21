@@ -26,8 +26,8 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
-import { ProfessionalCategories } from "@/interfaces/category.interface";
 import { useExplorer } from "@/hooks";
+import { ProfessionalCategories } from "@/interfaces";
 import { TitlePg } from "../title-pg/TitlePg";
 import { EmptyContent } from "../user/user-content/EmptyContent";
 import { ExplorerCard } from "./ExplorerCard";

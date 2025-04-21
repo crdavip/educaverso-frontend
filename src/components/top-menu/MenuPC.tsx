@@ -5,7 +5,7 @@ import Link from "next/link";
 import { KeyboardArrowDown } from "@mui/icons-material";
 import { Box, Button, Menu, MenuItem, Typography } from "@mui/material";
 import { Logo } from "../logo/Logo";
-import { ProfessionalCategories } from "@/interfaces/category.interface";
+import { ProfessionalCategories } from "@/interfaces";
 
 interface Props {
   categories: ProfessionalCategories[];
