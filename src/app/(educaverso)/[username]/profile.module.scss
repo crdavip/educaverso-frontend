@@ -8,9 +8,13 @@
   margin-bottom: min(4rem, 10%);
   width: 100%;
 
-  .userContainer .userWrapper {
-    width: 100%;
-    display: flex;
+  .userContainer {
+    height: fit-content;
+
+    .userWrapper {
+      width: 100%;
+      display: flex;
+    }
   }
 }
 
@@ -82,7 +86,7 @@
 
   .wrapperProfileImg {
     max-width: 250px;
-    height: 250px;  
+    height: 250px;
   }
 
   .wrapperProfileTxt {

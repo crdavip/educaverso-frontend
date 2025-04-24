@@ -8,7 +8,7 @@ interface Props {
   user: UserDetail;
 }
 
-export const RelatedCard = ({ user }: Props) => {
+export const RelatedUserCard = ({ user }: Props) => {
   const profileImage = user.profileImage ? user.profileImage.url : "/avatar-default.jpg";
 
   return (

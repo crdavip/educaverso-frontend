@@ -4,9 +4,10 @@ import styles from "./usercontent.module.scss";
 
 interface Props {
   title?: string;
+  text?: string;
 }
 
-export const EmptyContent = ({ title = "" }: Props) => {
+export const EmptyContent = ({ title = "", text = "" }: Props) => {
   return (
     <Grid container className={styles.emptyContainer}>
       <Box className={styles.emptyTxt}>
@@ -14,7 +15,9 @@ export const EmptyContent = ({ title = "" }: Props) => {
         <Typography variant="h6" component="h5" fontWeight={700}>
           {title ? `¡Vacío temporal en ${title}!` : `Sin resultados`}
         </Typography>
-        <Typography variant="body1">No hay contenido aquí, pero tranqui, ¡hay más secciones que explorar!</Typography>
+        <Typography variant="body1">
+          {text ? `${text}` : `No hay contenido aquí, pero tranqui, ¡hay más secciones que explorar!`}
+        </Typography>
       </Box>
     </Grid>
   );

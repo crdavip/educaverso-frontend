@@ -10,6 +10,11 @@ export const getUsersByCategory = async (category: string) => {
   return { data, pagination: meta.pagination };
 };
 
+export const getUsersRelatedByCategory = async (category: string, idUser: string) => {
+  const { data } = await queryStrapi(`user-details?filters[$and][0][category][slug][$contains]=${category}&filters[$and][1][user][documentId][$ne]=${idUser}&populate=*&pagination[pageSize]=6`);
+  return { data };
+};
+
 export const getUserByUserName = async (username: string) => {
   const { data } = await queryStrapi(`user-details?filters[user][username][$contains]=${username}&populate=*`);
   return { data };

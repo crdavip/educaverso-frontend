@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { Container, Grid2 as Grid, Box, Typography, Chip, Divider, Avatar, Card } from "@mui/material";
 import { CalendarMonthOutlined, GridViewOutlined } from "@mui/icons-material";
 import { BlocksRenderer } from "@strapi/blocks-react-renderer";
+import { RelatedContent } from "@/components";
 import styles from "./blogpage.module.scss";
 
 import { getBlogBySlug } from "@/data";
@@ -82,11 +83,7 @@ export default async function BlogPage({ params }: Props) {
           </Grid>
 
           <Grid size={{ xs: 12, md: 3 }} className={styles.relatedGrid}>
-            <Typography variant="h5" fontWeight={700}>
-              Relacionados
-            </Typography>
-            <Divider sx={{ marginBottom: 3 }} />
-            {/* <RelatedGrid category={user.category.slug} /> */}
+            <RelatedContent category={blog.userDetail.category.slug} idContent={blog.documentId} />
           </Grid>
         </Grid>
       </Container>

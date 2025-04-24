@@ -2,7 +2,15 @@ import { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Box, Chip, Container, Divider, Grid2 as Grid, Typography } from "@mui/material";
-import { ButtonsMenu, RelatedGrid, ReviewForm, SocialIcons, TotalContent, UserContent, UserRating } from "@/components";
+import {
+  ButtonsMenu,
+  RelatedContent,
+  ReviewForm,
+  SocialIcons,
+  TotalContent,
+  UserContent,
+  UserRating,
+} from "@/components";
 import styles from "./profile.module.scss";
 
 import { getUserByUserName, getUserMeLoader } from "@/data";
@@ -100,11 +108,7 @@ export default async function UserNamePage({ params }: Props) {
           </Grid>
 
           <Grid size={{ xs: 12, md: 3 }} className={styles.relatedGrid}>
-            <Typography variant="h5" fontWeight={700}>
-              Relacionados
-            </Typography>
-            <Divider sx={{ marginBottom: 3 }} />
-            <RelatedGrid category={user.category.slug} />
+            <RelatedContent category={user.category.slug} idContent={user.user.documentId} />
           </Grid>
         </Grid>
       </Container>

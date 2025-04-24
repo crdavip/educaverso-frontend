@@ -3,7 +3,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Container, Grid2 as Grid, Box, Typography, Chip, Avatar, Divider, Card } from "@mui/material";
 import { GridViewOutlined, CalendarMonthOutlined } from "@mui/icons-material";
-import { PortfolioSlideShow, RelatedGrid } from "@/components";
+import { PortfolioSlideShow, RelatedContent } from "@/components";
 import styles from "./portfolio.module.scss";
 
 import { getPortfolioBySlug } from "@/data";
@@ -22,7 +22,9 @@ export default async function PortafolioPage({ params }: Props) {
   const portfolio: Portfolio = data[0];
   if (!portfolio) notFound();
 
-  const profileImage = portfolio.userDetail.profileImage ? portfolio.userDetail.profileImage.url : "/avatar-default.jpg";
+  const profileImage = portfolio.userDetail.profileImage
+    ? portfolio.userDetail.profileImage.url
+    : "/avatar-default.jpg";
 
   return (
     <>
@@ -32,12 +34,7 @@ export default async function PortafolioPage({ params }: Props) {
           <Grid className={styles.headerContainer} size={{ xs: 12, md: 9 }} container>
             <Grid className={styles.portfolioWrapper} size={12}>
               <Box className={styles.wrapperPortfolioImg}>
-                <Image
-                  src={portfolio.images[0].url}
-                  alt={portfolio.title}
-                  width={500}
-                  height={500}
-                />
+                <Image src={portfolio.images[0].url} alt={portfolio.title} width={500} height={500} />
               </Box>
               <Grid container className={styles.wrapperPortfolioTxt}>
                 <Grid size={12} className={styles.portfolioWrapperInfo}>
@@ -87,11 +84,7 @@ export default async function PortafolioPage({ params }: Props) {
           </Grid>
 
           <Grid size={{ xs: 12, md: 3 }} className={styles.relatedGrid}>
-            <Typography variant="h5" fontWeight={700}>
-              Relacionados
-            </Typography>
-            <Divider sx={{ marginBottom: 3 }} />
-            <RelatedGrid category={portfolio.userDetail.category.slug} />
+            <RelatedContent category={portfolio.userDetail.category.slug} idContent={portfolio.documentId} />
           </Grid>
         </Grid>
       </Container>
