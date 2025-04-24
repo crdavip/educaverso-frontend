@@ -2,10 +2,10 @@ import { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Box, Chip, Container, Divider, Grid2 as Grid, Typography } from "@mui/material";
-import { RelatedGrid, ReviewForm, SocialIcons, TotalContent, UserContent, UserRating } from "@/components";
+import { ButtonsMenu, RelatedGrid, ReviewForm, SocialIcons, TotalContent, UserContent, UserRating } from "@/components";
 import styles from "./profile.module.scss";
 
-import { getUserByUserName } from "@/data";
+import { getUserByUserName, getUserMeLoader } from "@/data";
 import { UserDetail } from "@/interfaces";
 
 interface Props {
@@ -38,6 +38,7 @@ export default async function UserNamePage({ params }: Props) {
   const user: UserDetail = data[0];
   if (!user) notFound();
 
+  const isUser = await getUserMeLoader();
   const totalRating = user.reviews.reduce((acumulador, review) => acumulador + review.rating, 0);
   const ratingProm = user.reviews.length > 0 ? totalRating / user.reviews.length : 0;
 
@@ -87,13 +88,15 @@ export default async function UserNamePage({ params }: Props) {
             <Grid className={styles.contentWrapper} size={12}>
               <UserContent idUser={user.documentId} />
             </Grid>
-            <Grid className={styles.reviewsWrapper}>
-              <Typography variant="h5" fontWeight={700}>
-                Crear testimonio
-              </Typography>
-              <Divider sx={{ marginBottom: 3 }} />
-              <ReviewForm reviewed={user.user.username} />
-            </Grid>
+            {user.user.documentId !== isUser.data?.documentId && (
+              <Grid className={styles.reviewsWrapper}>
+                <Typography variant="h5" fontWeight={700}>
+                  Crear testimonio
+                </Typography>
+                <Divider sx={{ marginBottom: 3 }} />
+                {isUser.ok ? <ReviewForm reviewed={user.documentId} /> : <ButtonsMenu />}
+              </Grid>
+            )}
           </Grid>
 
           <Grid size={{ xs: 12, md: 3 }} className={styles.relatedGrid}>

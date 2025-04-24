@@ -3,10 +3,12 @@ export * from "./actions/strapi/contactAction";
 export * from "./actions/strapi/getCategories";
 export * from "./actions/strapi/getContent";
 export * from "./actions/strapi/getUsers";
+export * from "./actions/strapi/reviewActions";
 export * from "./actions/strapi/strapi";
 export * from "./services/strapi/contactService";
 export * from "./services/strapi/createUserServices";
 export * from "./services/strapi/getAllContent";
+export * from "./services/strapi/reviewService";
 // API Courses
 export * from "./actions/courses/courses";
 export * from "./actions/courses/getContent";

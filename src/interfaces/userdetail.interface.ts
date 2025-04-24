@@ -1,6 +1,7 @@
 import { Blog, Certificate, Image, Portfolio, ProfessionalCategories, SocialMedia, User, Review } from "./";
 
 export interface UserDetail {
+  id: number;
   documentId: string;
   firstname: string;
   lastname: string;
