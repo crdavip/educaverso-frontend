@@ -62,7 +62,6 @@ export async function getAllContent({
     );
 
     const res = await queryStrapi(`${type}?${query}`);
-    console.log(query)
 
     if (!res.error) {
       const items = res.data.map((entry: any) => ({

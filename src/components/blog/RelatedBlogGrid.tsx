@@ -13,7 +13,6 @@ interface Props {
 export const RelatedBlogGrid = async ({ category, idBlog }: Props) => {
   const { data } = await getBlogsRelatedByCategory(category, idBlog);
   const blogs: Blog[] = data;
-  console.log(blogs)
 
   return (
     <Grid container spacing={2}>

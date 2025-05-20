@@ -13,7 +13,7 @@ import {
 } from "@/components";
 import styles from "./profile.module.scss";
 
-import { getUserByUserName, getUserMeLoader } from "@/data";
+import { getUserByUserName, getUserMeLoader, updateProfileViews } from "@/data";
 import { UserDetail } from "@/interfaces";
 
 interface Props {
@@ -47,6 +47,11 @@ export default async function UserNamePage({ params }: Props) {
   if (!user) notFound();
 
   const isUser = await getUserMeLoader();
+
+  if (user.user.documentId !== isUser.data?.documentId) {
+    await updateProfileViews(user.documentId, user.profileViews);
+  }
+
   const totalRating = user.reviews.reduce((acumulador, review) => acumulador + review.rating, 0);
   const ratingProm = user.reviews.length > 0 ? totalRating / user.reviews.length : 0;
 
@@ -84,10 +89,7 @@ export default async function UserNamePage({ params }: Props) {
                     <TotalContent idUser={user.documentId} />
                   </Box>
                   <Box className={styles.userStats}>
-                    {/* <Typography variant="h4">{user.profileViews.toLocaleString()}</Typography> */}
-                    <Typography variant="h4">
-                      {(Math.floor(Math.random() * (2000000 - 1 + 1)) + 1).toLocaleString()}
-                    </Typography>
+                    <Typography variant="h4">{user.profileViews.toLocaleString()}</Typography>
                     <Typography variant="h6">Vistas</Typography>
                   </Box>
                 </Grid>

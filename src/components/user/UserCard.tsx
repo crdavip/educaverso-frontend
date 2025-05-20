@@ -44,8 +44,7 @@ export const UserCard = ({ user }: Props) => {
             <TotalContent idUser={user.documentId} />
           </Box>
           <Box className={styles.userCardStats}>
-            {/* <Typography variant="h4">{formatNumber(user.profileViews)}</Typography> */}
-            <Typography variant="h4">{formatNumber(Math.floor(Math.random() * (2000000 - 1 + 1)) + 1)}</Typography>
+            <Typography variant="h4">{formatNumber(user.profileViews)}</Typography>
             <Typography variant="caption">Vistas</Typography>
           </Box>
         </Box>

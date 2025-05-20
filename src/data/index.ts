@@ -9,6 +9,7 @@ export * from "./services/strapi/contactService";
 export * from "./services/strapi/createUserServices";
 export * from "./services/strapi/getAllContent";
 export * from "./services/strapi/reviewService";
+export * from "./services/strapi/updateProfileViews";
 // API Courses
 export * from "./actions/courses/courses";
 export * from "./actions/courses/getContent";

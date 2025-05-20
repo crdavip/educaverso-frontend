@@ -11,7 +11,7 @@ export interface UserDetail {
   profileImage?: Image;
   reviews: Review[];
   user: User;
-  // profileViews: number;
+  profileViews: number;
   socials: SocialMedia[];
   portfolios: Portfolio[];
   certificates: Certificate[];
