@@ -5,6 +5,7 @@ export * from "./couser.interface";
 export * from "./explore.interface";
 export * from "./image.interface";
 export * from "./portfolio.interface";
+export * from "./profession.interface";
 export * from "./review.interface";
 export * from "./social.interface";
 export * from "./testimonial.interface";

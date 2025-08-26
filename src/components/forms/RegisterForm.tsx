@@ -32,45 +32,25 @@ import {
 import { registerUserAction } from "@/data";
 import { StrapiErrors } from "../custom/StrapiErrors";
 import { getSchemaShape, schemaRegisterSteps } from "@/schemas";
-import { ProfessionalCategories } from "@/interfaces";
-
-const professions = [
-  "Barbero",
-  "Chef",
-  "Coach",
-  "Cosmetólogo",
-  "Dermatólogo",
-  "Dietista",
-  "Entrenador",
-  "Esteticista",
-  "Estudiante",
-  "Fisioterapeuta",
-  "Instructor",
-  "Manicurista",
-  "Maquillador",
-  "Mentor",
-  "Nutricionista",
-  "Peluquero",
-  "Preparador Físico",
-  "Profesor",
-  "Psicólogo",
-  "Tecnólogo en Alimentos",
-  "Terapeuta",
-];
+import { Profession, ProfessionalCategories } from "@/interfaces";
 
 const steps = ["Acceso", "Datos", "Perfil", "Vista"];
 
 interface Props {
   categories: ProfessionalCategories[];
+  professions: Profession[];
 }
 
-export const RegisterForm = ({ categories }: Props) => {
-  const [initialState, setInitialState] = useState({ data: {
-    username: "",
-    email: "",
-  } });
+export const RegisterForm = ({ categories, professions }: Props) => {
+  const [initialState, setInitialState] = useState({
+    data: {
+      username: "",
+      email: "",
+    },
+  });
   const [category, setCategory] = useState("");
   const [profession, setProfession] = useState("");
+  const [professionByCategory, setProfessionByCategory] = useState<Profession[]>([]);
   const [formState, formAction] = useActionState(registerUserAction, initialState);
 
   const [showPass, setShowPass] = useState(false);
@@ -87,6 +67,9 @@ export const RegisterForm = ({ categories }: Props) => {
 
   const handleChangeCategory = (event: SelectChangeEvent) => {
     setCategory(event.target.value as string);
+    const data = professions.filter((profession) => profession.category.id == (+event.target.value + 1));
+    setProfessionByCategory(data);
+    console.log(professions);
   };
   const handleChangeProfession = (event: SelectChangeEvent) => {
     setProfession(event.target.value as string);
@@ -330,10 +313,11 @@ export const RegisterForm = ({ categories }: Props) => {
               defaultValue={profession}
               onChange={handleChangeProfession}
               error={formState?.zodErrors?.profession || stepErrors.profession}
+              disabled={!category}
             >
-              {professions.map((option) => (
-                <MenuItem key={option} value={option}>
-                  {option}
+              {professionByCategory.map((option) => (
+                <MenuItem key={option.id} value={option.name}>
+                  {option.name}
                 </MenuItem>
               ))}
             </Select>
@@ -375,14 +359,24 @@ export const RegisterForm = ({ categories }: Props) => {
 
         {/* Paso 4 */}
         <Box sx={{ display: activeStep === 3 ? "" : "none" }}>
-          <Typography variant="h5" fontWeight={700}>Vista Previa</Typography>
-          <Box sx={{display: "flex", gap: 1}}>
-            <Typography variant="body1" fontWeight={700}>Usuario:</Typography>
-            <Typography variant="body1" fontWeight={500}>{initialState.data.username}</Typography>
+          <Typography variant="h5" fontWeight={700}>
+            Vista Previa
+          </Typography>
+          <Box sx={{ display: "flex", gap: 1 }}>
+            <Typography variant="body1" fontWeight={700}>
+              Usuario:
+            </Typography>
+            <Typography variant="body1" fontWeight={500}>
+              {initialState.data.username}
+            </Typography>
           </Box>
-          <Box sx={{display: "flex", gap: 1}}>
-            <Typography variant="body1" fontWeight={700}>Correo:</Typography>
-            <Typography variant="body1" fontWeight={500}>{initialState.data.email}</Typography>
+          <Box sx={{ display: "flex", gap: 1 }}>
+            <Typography variant="body1" fontWeight={700}>
+              Correo:
+            </Typography>
+            <Typography variant="body1" fontWeight={500}>
+              {initialState.data.email}
+            </Typography>
           </Box>
         </Box>
 
@@ -392,9 +386,7 @@ export const RegisterForm = ({ categories }: Props) => {
             Atrás
           </Button>
           {activeStep < steps.length - 1 ? (
-            <Button onClick={handleNext}>
-              Siguiente
-            </Button>
+            <Button onClick={handleNext}>Siguiente</Button>
           ) : (
             <Button type="submit" variant="contained">
               Finalizar

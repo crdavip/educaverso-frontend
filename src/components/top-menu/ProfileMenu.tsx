@@ -43,7 +43,7 @@ export const ProfileMenu = ({ user }: Props) => {
   return (
     <>
       <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-        <Avatar alt={user.user.username} src={profileImage} />
+        <Avatar alt={user.user.username} src={`http://localhost:1337${profileImage}`} />
       </IconButton>
       <Menu
         sx={{ mt: "45px" }}
@@ -63,7 +63,7 @@ export const ProfileMenu = ({ user }: Props) => {
         disableScrollLock
       >
         <MenuItem onClick={() => onRedirectToProfile(user.user.username)} sx={{ gap: 2 }}>
-          <Avatar alt={user.user.username} src={profileImage} />
+          <Avatar alt={user.user.username} src={`http://localhost:1337${profileImage}`} />
           <Box>
             <Typography component="div" variant="body2" color="secondary">
               {`${user.firstname} ${user.lastname}`}
