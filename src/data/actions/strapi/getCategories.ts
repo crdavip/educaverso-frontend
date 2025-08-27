@@ -11,6 +11,6 @@ export const getCategoriesBySlug = async (slug: string) => {
 };
 
 export const getProfessions = async () => {
-  const { data } = await queryStrapi(`professions?populate=*`);
+  const { data } = await queryStrapi(`professions?pagination[page]=1&pagination[pageSize]=100&populate=*`);
   return data;
 };
