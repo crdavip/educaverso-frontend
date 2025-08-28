@@ -1,9 +1,9 @@
+import Link from "next/link";
 import Image from "next/image";
 import { Card, CardContent, Typography, Divider, CardHeader, Avatar } from "@mui/material";
 import { Review } from "@/interfaces";
 import { UserRating } from "../rating/UserRating";
 import styles from "./review.module.scss";
-import Link from "next/link";
 
 interface Props {
   review: Review;
@@ -25,7 +25,7 @@ export const ReviewCard = ({ review }: Props) => {
         avatar={
           <Avatar sx={{ width: 60, height: 60 }} className={styles.avatar}>
             <Link href={`/${review.reviewer.user.username}`}>
-              <Image src={profileImage} alt={review.reviewer.user.username} width={100} height={100} />
+              <Image src={`http://localhost:1337${profileImage}`} alt={review.reviewer.user.username} width={100} height={100} />
             </Link>
           </Avatar>
         }

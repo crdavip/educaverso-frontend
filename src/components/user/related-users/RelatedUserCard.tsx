@@ -15,7 +15,7 @@ export const RelatedUserCard = ({ user }: Props) => {
     <Card key={user.documentId} className={styles.userCard}>
       <CardContent className={styles.userCardHeader}>
         <Link href={`/${user.user.username}`}>
-          <Image src={profileImage} alt={user.user.username} width={300} height={300} />
+          <Image src={`http://localhost:1337${profileImage}`} alt={user.user.username} width={300} height={300} />
           <Box className={styles.userCardHeaderBg}>
             <Chip color="primary" size="small" label={`@${user.user.username}`} />
           </Box>

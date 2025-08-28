@@ -33,7 +33,7 @@ export default async function BlogPage({ params }: Props) {
           <Grid className={styles.headerContainer} size={{ xs: 12, md: 9 }} container>
             <Grid className={styles.blogWrapper} size={12}>
               <Box className={styles.wrapperBlogImg}>
-                <Image src={blog.image.url} alt={blog.title} width={500} height={500} />
+                <Image src={`http://localhost:1337${blog.image.url}`} alt={blog.title} width={500} height={500} />
               </Box>
               <Grid container className={styles.wrapperBlogTxt}>
                 <Grid size={12} className={styles.blogWrapperInfo}>
@@ -44,7 +44,7 @@ export default async function BlogPage({ params }: Props) {
                     <Link href={`/${blog.userDetail.user.username}`}>
                       <Chip
                         color="primary"
-                        avatar={<Avatar alt={blog.userDetail.user.username} src={profileImage} />}
+                        avatar={<Avatar alt={blog.userDetail.user.username} src={`http://localhost:1337${profileImage}`} />}
                         label={`@${blog.userDetail.user.username}`}
                       />
                     </Link>
