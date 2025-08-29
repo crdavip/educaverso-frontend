@@ -1,5 +1,5 @@
 import { queryStrapi } from "./strapi";
-import { getCoursesByUser } from "../courses/getContent";
+import { getCoursesByUser, getFakeCourses } from "../courses/getContent";
 import { Blog, Certificate, Course, Portfolio, Review } from "@/interfaces";
 
 export const getReviewsByUser = async (idUser: string) => {
@@ -52,8 +52,8 @@ export const getBlogsRelatedByCategory = async (category: string, idBlog: string
   return { data };
 };
 
-export const getTotalContents = async (idUser: string) => {
-  const courses: Course[] = await getCoursesByUser(idUser) ?? [];
+export const getTotalContents = async (idUser: string, username?: string) => {
+  const courses: Course[] = await getCoursesByUser(idUser) ?? getFakeCourses(username);
   const portfolios: Portfolio[] = await getPortfoliosByUser(idUser) ?? [];
   const blogs: Blog[] = await getBlogsByUser(idUser) ?? [];
   const reviews: Review[] = await getReviewsByUser(idUser) ?? [];

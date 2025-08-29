@@ -41,7 +41,7 @@ export const UserCard = ({ user }: Props) => {
         </Box>
         <Box className={styles.userCardContentRight}>
           <Box className={styles.userCardStats}>
-            <TotalContent idUser={user.documentId} />
+            <TotalContent idUser={user.documentId} username={user.user.username} />
           </Box>
           <Box className={styles.userCardStats}>
             <Typography variant="h4">{formatNumber(user.profileViews)}</Typography>

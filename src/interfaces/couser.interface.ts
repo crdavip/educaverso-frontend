@@ -13,6 +13,7 @@ export interface Course {
     mainVideoUploadStatus: string;
     status:                string;
     numberOfStudents:      number;
+    user: string;
 }
 
 export type ValidLevel = 'junior'|'mid'|'senior';

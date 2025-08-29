@@ -4,10 +4,11 @@ import { getTotalContents } from "@/data";
 
 interface Props {
   idUser: string;
+  username?: string;
 }
 
-export const TotalContent = async ({ idUser }: Props) => {
-  const totalContent = await getTotalContents(idUser);
+export const TotalContent = async ({ idUser, username }: Props) => {
+  const totalContent = await getTotalContents(idUser, username);
 
   return (
     <>

@@ -30,7 +30,8 @@ export const CourseCard = ({ course }: Props) => {
   const subtractDiscount = () => {
     let result
     if(course.discountPercentage) {
-      result = Number(course.originalPrice) - (Number(course.originalPrice) * Number(course.discountPercentage))
+      // result = Number(course.originalPrice) - (Number(course.originalPrice) * Number(course.discountPercentage))
+      result = Number(course.originalPrice) - ((Number(course.originalPrice) * Number(course.discountPercentage)) / 100)
     }
     return result
   };
@@ -38,7 +39,8 @@ export const CourseCard = ({ course }: Props) => {
     <Card className={styles.courseCard}>
       <CardContent className={styles.courseCardHeader}>
         <Link href={`${process.env.NEXT_PUBLIC_FRONT_COURSES_URL}/courses/details/${course.courseId}`} target="_blank">
-          <Image src={`https://${process.env.NEXT_PUBLIC_AZURE_STORAGE_ACCOUNT}.blob.core.windows.net/course-images/${course.mainImage}`} alt={course.name} width={300} height={300} />
+          {/* <Image src={`https://${process.env.NEXT_PUBLIC_AZURE_STORAGE_ACCOUNT}.blob.core.windows.net/course-images/${course.mainImage}`} alt={course.name} width={300} height={300} /> */}
+          <Image src={`/${course.mainImage}`} alt={course.name} width={300} height={300} />
         </Link>
       </CardContent>
       <CardContent className={styles.courseCardContent}>

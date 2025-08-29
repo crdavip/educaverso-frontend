@@ -86,7 +86,7 @@ export default async function UserNamePage({ params }: Props) {
                 </Grid>
                 <Grid size={{ xs: 12, md: 2 }} className={styles.userWrapperStats}>
                   <Box className={styles.userStats}>
-                    <TotalContent idUser={user.documentId} />
+                    <TotalContent idUser={user.documentId} username={user.user.username} />
                   </Box>
                   <Box className={styles.userStats}>
                     <Typography variant="h4">{user.profileViews.toLocaleString()}</Typography>
@@ -96,7 +96,7 @@ export default async function UserNamePage({ params }: Props) {
               </Grid>
             </Grid>
             <Grid className={styles.contentWrapper} size={12}>
-              <UserContent idUser={user.documentId} />
+              <UserContent idUser={user.documentId} username={user.user.username} />
             </Grid>
             {user.user.documentId !== isUser.data?.documentId && (
               <Grid className={styles.reviewsWrapper}>
