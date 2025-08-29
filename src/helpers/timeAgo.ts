@@ -5,10 +5,10 @@ export const timeAgo = (date: Date): string => {
   const intervals: { label: string; singular: string; plural: string; seconds: number }[] = [
     { label: "año", singular: "año", plural: "años", seconds: 31536000 },
     { label: "mes", singular: "mes", plural: "meses", seconds: 2592000 },
-    { label: "semana", singular: "semana", plural: "semanas", seconds: 604800 },
+    { label: "sem", singular: "sem", plural: "sem", seconds: 604800 },
     { label: "día", singular: "día", plural: "días", seconds: 86400 },
     { label: "hora", singular: "hora", plural: "horas", seconds: 3600 },
-    { label: "minuto", singular: "minuto", plural: "minutos", seconds: 60 },
+    { label: "min", singular: "min", plural: "min", seconds: 60 },
   ];
 
   for (const interval of intervals) {
@@ -18,5 +18,5 @@ export const timeAgo = (date: Date): string => {
     }
   }
 
-  return "hace unos segundos";
+  return "reciente";
 };

@@ -13,8 +13,8 @@ interface Props {
 }
 
 export const UserCard = ({ user }: Props) => {
-  const totalRating = user.reviews.reduce((acumulador, review) => acumulador + review.rating, 0);
-  const ratingProm = user.reviews.length > 0 ? totalRating / user.reviews.length : 0;
+  const totalRating = user.reviewsReceived.reduce((acumulador, review) => acumulador + review.rating, 0);
+  const ratingProm = user.reviewsReceived.length > 0 ? totalRating / user.reviewsReceived.length : 0;
 
   const profileImage = user.profileImage ? user.profileImage.url : "/avatar-default.jpg";
 

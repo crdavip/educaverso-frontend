@@ -9,7 +9,8 @@ export interface UserDetail {
   description: string;
   gender: ValidGenders;
   profileImage?: Image;
-  reviews: Review[];
+  reviewsWritten: Review[];
+  reviewsReceived: Review[];
   user: User;
   profileViews: number;
   socials: SocialMedia[];

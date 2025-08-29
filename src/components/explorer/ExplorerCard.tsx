@@ -1,13 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Avatar, Box, Card, CardContent, Chip, Typography } from "@mui/material";
-import {
-  NewspaperOutlined,
-  GridViewOutlined,
-  GroupOutlined,
-  CollectionsOutlined,
-  CalendarMonthOutlined,
-} from "@mui/icons-material";
+import { NewspaperOutlined, GridViewOutlined, GroupOutlined, CollectionsOutlined, CalendarMonthOutlined } from "@mui/icons-material";
 import { truncateText, timeAgo } from "@/helpers";
 import { ContentItem } from "@/interfaces";
 import styles from "./explorer.module.scss";
@@ -23,9 +17,8 @@ interface Props {
 }
 
 export const ExplorerCard = ({ item }: Props) => {
-  const profileImage = item.author?.profileImage
-    ? `http://localhost:1337${item.author?.profileImage}`
-    : `http://localhost:1337${item.image}`;
+
+  const profileImage = item.author?.profileImage ? `http://localhost:1337${item.author?.profileImage}` : `http://localhost:1337${item.image}`;
 
   return (
     <Card className={styles.explorerCard}>
