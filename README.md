@@ -1,36 +1,94 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🌌 Educaverso | Frontend
 
-## Getting Started
+Una aplicación web moderna construida para [Beunik](https://beunik.co/), diseñada para ofrecer una experiencia rápida, escalable y amigable para el usuario. Este proyecto utiliza las mejores prácticas de desarrollo con Next y herramientas modernas para el frontend.
 
-First, run the development server:
+## 🖥️ Demo
+
+🔗 [Ver Demo en vivo](https://tu-sitio-web.com)  
+
+---
+
+## 🧰 Tecnologías utilizadas
+
+- **Next.js** – Framework React para SSR, SSG y App Router
+- **React** – Librería de UI
+- **TypeScript** – Tipado estático para mayor robustez
+- **CSS** – Tipado estático para mayor robustez
+- **Material UI** – Estilado rápido con clases utilitarias
+---
+
+## ⚙️ Instalación
+
+### 1. Clonar y configurar el repositorio Backend
+
+🔗 [Educaverso | Backend](https://github.com/tu-usuario/mi-proyecto-next.git)
+
+---
+
+### 2. Clonar el repositorio Frontend
+
+```bash
+git clone https://github.com/tu-usuario/mi-proyecto-next.git
+cd educaverso-ui
+```
+
+### 3. Instalar las dependencias
+
+```bash
+npm install
+# o
+yarn install
+```
+
+### 4. Configurar las variables de entorno
+
+Crea un archivo .env.local en la raíz del proyecto con tus variables de entorno:
+
+```bash
+# Server
+API_BASE_URL=
+API_COURSES_URL=
+API_AUTH_TOKEN=
+FRONT_COURSES_URL=
+AZURE_STORAGE_ACCOUNT=
+
+# Client
+NEXT_PUBLIC_API_BASE_URL=
+NEXT_PUBLIC_API_COURSES_URL=
+NEXT_PUBLIC_FRONT_COURSES_URL=
+NEXT_PUBLIC_AZURE_STORAGE_ACCOUNT=
+```
+
+### 5. Iniciar el servidor de desarrollo
 
 ```bash
 npm run dev
-# or
+# o
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🥷 Accesos de Prueba
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+andresg_94@correo.com       # Correo
+Abcd1234                    # Contraseña
+```
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 🧪 Scripts útiles
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run dev       # Servidor de desarrollo
+npm run build     # Compilación para producción
+npm run start     # Iniciar en modo producción
+npm run lint      # Ejecutar ESLint
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 👨‍💻 Autor
+Desarrollado con ❤️ por **Cristian David**
+🔗 [GitHub](https://tu-sitio-web.com) · [LinkedIn](https://tu-sitio-web.com)
