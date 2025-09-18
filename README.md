@@ -4,7 +4,7 @@ Una aplicación web moderna construida para [Beunik](https://beunik.co/), diseñ
 
 ## 🖥️ Demo
 
-🔗 [Ver Demo en vivo](https://tu-sitio-web.com)  
+🔗 [Ver Demo en vivo](https://educaverso-crdavip.vercel.app/)  
 
 ---
 
@@ -21,15 +21,15 @@ Una aplicación web moderna construida para [Beunik](https://beunik.co/), diseñ
 
 ### 1. Clonar y configurar el repositorio Backend
 
-🔗 [Educaverso | Backend](https://github.com/tu-usuario/mi-proyecto-next.git)
+🔗 [Educaverso | Backend](https://github.com/crdavip/educaverso-backend)
 
 ---
 
 ### 2. Clonar el repositorio Frontend
 
 ```bash
-git clone https://github.com/tu-usuario/mi-proyecto-next.git
-cd educaverso-ui
+git clone https://github.com/crdavip/educaverso-frontend.git
+cd educaverso-frontend
 ```
 
 ### 3. Instalar las dependencias
@@ -91,4 +91,4 @@ npm run lint      # Ejecutar ESLint
 
 ## 👨‍💻 Autor
 Desarrollado con ❤️ por **Cristian David**
-🔗 [GitHub](https://tu-sitio-web.com) · [LinkedIn](https://tu-sitio-web.com)
+🔗 [GitHub](https://github.com/crdavip) · [LinkedIn](https://www.linkedin.com/in/crdavip/)
