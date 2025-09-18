@@ -22,7 +22,7 @@ export const UserCard = ({ user }: Props) => {
     <Card className={styles.userCard}>
       <CardContent className={styles.userCardHeader}>
         <Link href={`/${user.user.username}`}>
-          <Image src={`http://localhost:1337${profileImage}`} alt={user.user.username} width={300} height={300} />
+          <Image src={`${process.env.API_BASE_URL}${profileImage}`} alt={user.user.username} width={300} height={300} />
           <Box className={styles.userCardHeaderBg}>
             <Typography variant="h5" fontWeight={700}>
               {`${user.firstname} ${user.lastname}`}

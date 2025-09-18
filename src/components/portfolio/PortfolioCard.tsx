@@ -16,7 +16,7 @@ export const PortfolioCard = ({ portfolio }: Props) => {
       <Card className={styles.portfolioCard}>
         <CardContent className={styles.portfolioCardBody}>
           <Image
-            src={`http://localhost:1337${portfolio.images[0].url}`}
+            src={`${process.env.API_BASE_URL}${portfolio.images[0].url}`}
             alt={portfolio.title}
             width={300}
             height={300}

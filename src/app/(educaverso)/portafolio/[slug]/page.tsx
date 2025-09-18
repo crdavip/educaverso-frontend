@@ -34,7 +34,7 @@ export default async function PortafolioPage({ params }: Props) {
           <Grid className={styles.headerContainer} size={{ xs: 12, md: 9 }} container>
             <Grid className={styles.portfolioWrapper} size={12}>
               <Box className={styles.wrapperPortfolioImg}>
-                <Image src={`http://localhost:1337${portfolio.images[0].url}`} alt={portfolio.title} width={500} height={500} />
+                <Image src={`${process.env.API_BASE_URL}${portfolio.images[0].url}`} alt={portfolio.title} width={500} height={500} />
               </Box>
               <Grid container className={styles.wrapperPortfolioTxt}>
                 <Grid size={12} className={styles.portfolioWrapperInfo}>
@@ -45,7 +45,7 @@ export default async function PortafolioPage({ params }: Props) {
                     <Link href={`/${portfolio.userDetail.user.username}`}>
                       <Chip
                         color="primary"
-                        avatar={<Avatar alt={portfolio.userDetail.user.username} src={`http://localhost:1337${profileImage}`} />}
+                        avatar={<Avatar alt={portfolio.userDetail.user.username} src={`${process.env.API_BASE_URL}${profileImage}`} />}
                         label={`@${portfolio.userDetail.user.username}`}
                       />
                     </Link>

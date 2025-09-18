@@ -8,8 +8,8 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: "http",
-        hostname: "localhost",
+        protocol: "https",
+        hostname: "educaverso-api.up.railway.app",
       },
       {
         protocol: "https",

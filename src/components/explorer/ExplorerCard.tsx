@@ -18,13 +18,13 @@ interface Props {
 
 export const ExplorerCard = ({ item }: Props) => {
 
-  const profileImage = item.author?.profileImage ? `http://localhost:1337${item.author?.profileImage}` : `http://localhost:1337${item.image}`;
+  const profileImage = item.author?.profileImage ? `${process.env.API_BASE_URL}${item.author?.profileImage}` : `${process.env.API_BASE_URL}${item.image}`;
 
   return (
     <Card className={styles.explorerCard}>
       <CardContent className={styles.explorerCardHeader}>
         <Link href={item.url}>
-          <Image src={`http://localhost:1337${item.image}`} alt={item.slug} width={300} height={300} />
+          <Image src={`${process.env.API_BASE_URL}${item.image}`} alt={item.slug} width={300} height={300} />
           <Box className={styles.explorerCardHeaderBg}>
             <Typography variant="h6" fontWeight={700}>
               {truncateText(item.title, 35)}
@@ -39,7 +39,7 @@ export const ExplorerCard = ({ item }: Props) => {
               color="primary"
               variant="filled"
               size="small"
-              avatar={<Avatar src={profileImage ?? `http://localhost:1337${item.image}`} alt={item.documentId} />}
+              avatar={<Avatar src={profileImage ?? `${process.env.API_BASE_URL}${item.image}`} alt={item.documentId} />}
               label={`@${item.author?.username ?? item.slug}`}
             />
           </Link>

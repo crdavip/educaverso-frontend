@@ -65,7 +65,7 @@ export default async function UserNamePage({ params }: Props) {
           <Grid className={styles.userContainer} size={{ xs: 12, md: 9 }} container>
             <Grid className={styles.userWrapper} size={12}>
               <Box className={styles.wrapperProfileImg}>
-                <Image src={`http://localhost:1337${profileImage}`} alt={user.user.username} width={500} height={500} />
+                <Image src={`${process.env.API_BASE_URL}${profileImage}`} alt={user.user.username} width={500} height={500} />
               </Box>
               <Grid container className={styles.wrapperProfileTxt}>
                 <Grid size={{ xs: 12, md: 10 }} className={styles.userWrapperInfo}>

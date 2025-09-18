@@ -25,7 +25,7 @@ export const ReviewCard = ({ review }: Props) => {
         avatar={
           <Avatar sx={{ width: 60, height: 60 }} className={styles.avatar}>
             <Link href={`/${review.reviewer.user.username}`}>
-              <Image src={`http://localhost:1337${profileImage}`} alt={review.reviewer.user.username} width={100} height={100} />
+              <Image src={`${process.env.API_BASE_URL}${profileImage}`} alt={review.reviewer.user.username} width={100} height={100} />
             </Link>
           </Avatar>
         }
